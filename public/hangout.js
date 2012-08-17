@@ -39,7 +39,13 @@ var Hangout=(function(){
         removeVideo(data);
     });
   };
-
+  function removeVideo(socketId) {
+    var video = $('remote' + socketId);
+    if (video) {
+      videos.splice(videos.indexOf(video), 1);
+      video.parentNode.removeChild(video);
+    }
+  }
   function getNumPerRow() {
     var len = videos.length;
     var biggest;
