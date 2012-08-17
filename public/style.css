@@ -1,5 +1,6 @@
 html, body {
   height: 100%;
+  font-family:sans-serif,verdana,Arial;
 }
 
 html {
@@ -11,7 +12,7 @@ body {
   margin: 0;
 }
 div.container{
-  width: 960px;
+  width: 100%;
   margin:0 auto;
 }
 #videos {

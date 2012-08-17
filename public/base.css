@@ -1,0 +1,23 @@
+header{
+	margin:0;
+	min-height:100px;
+	border-bottom:1px solid #CCC;
+}
+div.chat-block{
+	width: 30%;
+	float:left;
+}
+div#videos{
+	width: 69%;
+	float:left;
+	border-left: 1px solid #ccc;
+}
+div.row{
+	border-bottom:1px solid #CCC;
+}
+div#bottom-pane{
+	border-top:  1px solid #CCC
+}
+.clear{
+	clear:both;
+}
