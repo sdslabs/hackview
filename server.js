@@ -16,7 +16,7 @@ app.get('/webrtc.io.js', function(req, res) {
   res.sendfile(__dirname + '/webrtc.io.js');
 });
 
-app.get('/webrtc.io.js', function(req, res) {
+app.get('/main.js', function(req, res) {
   res.sendfile(__dirname + '/main.js');
 });
 
