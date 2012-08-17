@@ -30,7 +30,7 @@ function setWH(video, i) {
   var perRow = getNumPerRow();
   var perColumn = Math.ceil(videos.length / perRow);
   var width = Math.floor((window.innerWidth) / perRow);
-  var height = Math.floor((window.innerHeight - 190) / perColumn);
+  var height = Math.floor((window.innerHeight) / perColumn);
   video.width = width;
   video.height = height;
   video.style.position = "absolute";
@@ -39,15 +39,15 @@ function setWH(video, i) {
 }
 
 function cloneVideo(domId, socketId) {
-  var video = document.getElementById(domId);
+  var video = $("#"+domId);
   var clone = video.cloneNode(false);
   clone.id = "remote" + socketId;
-  document.getElementById('videos').appendChild(clone);
+  $('#videos').appendChild(clone);
   videos.push(clone);
   return clone;
 }
 function removeVideo(socketId) {
-  var video = document.getElementById('remote' + socketId);
+  var video = $('remote' + socketId);
   if (video) {
       videos.splice(videos.indexOf(video), 1);
       video.parentNode.removeChild(video);
@@ -59,9 +59,9 @@ function sanitize(msg) {
 }
 
 function initNewRoom() {
-  var button = document.getElementById("newRoom");
+  var button = $("#newRoom");
 
-  button.addEventListener('click', function(event) {
+  button.click(function(event) {
 
       var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
       var string_length = 8;
@@ -73,7 +73,7 @@ function initNewRoom() {
       
       window.location.hash = randomstring;
       location.reload();
-  })
+  });
 }
 
 function init() {
@@ -83,25 +83,21 @@ function init() {
     return;
   if(PeerConnection){
     rtc.createStream({"video": true, "audio": true}, function(stream) {
-      document.getElementById('you').src = URL.createObjectURL(stream);
-      videos.push(document.getElementById('you'));
+      $('#you').src = URL.createObjectURL(stream);
+      videos.push($('#you'));
       rtc.attachStream(stream, 'you');
       subdivideVideos();
     });
   }else {
     alert('Your browser is not supported or you have to turn on flags. In chrome you go to chrome://flags and turn on Enable PeerConnection remember to restart chrome');
   }
-
   
-
-
-  //When using localhost
-  rtc.connect("ws://192.168.78.103:8000/", room);
+  rtc.connect("ws://"+window.location.hostname+":8000/", room);
 
   rtc.on('add remote stream', function(stream, socketId) {
     console.log("ADDING REMOTE STREAM...");
     var clone = cloneVideo('you', socketId);
-    document.getElementById(clone.id).setAttribute("class", "");
+    $("#"+clone.id).attr("class", "");
     rtc.attachStream(stream, clone.id);
     subdivideVideos();
   });

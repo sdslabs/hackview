@@ -9,5 +9,3 @@ var webRTC = require('webrtc.io').listen(app);
 app.get('/', function(req, res) {
   res.sendfile(__dirname + '/public/index.html');
 });
-
-
