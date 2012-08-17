@@ -77,6 +77,10 @@ function initNewRoom() {
 }
 
 function init() {
+  var room = window.location.hash.slice(1);
+  //if you are not in a chatroom, return
+  if(room.length===0)
+    return;
   if(PeerConnection){
     rtc.createStream({"video": true, "audio": true}, function(stream) {
       document.getElementById('you').src = URL.createObjectURL(stream);
@@ -89,10 +93,10 @@ function init() {
   }
 
   
-  var room = window.location.hash.slice(1);
+
 
   //When using localhost
-  rtc.connect("ws://10.42.43.77:8000/", room);
+  rtc.connect("ws://192.168.78.103:8000/", room);
 
   rtc.on('add remote stream', function(stream, socketId) {
     console.log("ADDING REMOTE STREAM...");

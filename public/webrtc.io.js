@@ -148,7 +148,6 @@ window.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || 
   };
 
   rtc.createPeerConnection = function(id) {
-    console.log('createPeerConnection');
     var pc = rtc.peerConnections[id] = new PeerConnection(rtc.SERVER, function(candidate, moreToFollow) {
       if (candidate) {
         rtc._socket.send(JSON.stringify({
