@@ -12,6 +12,10 @@ var Hangout=(function(){
     //if you are not in a chatroom, return
     if(room.length===0)
       return false;
+
+    //We are in a chatRoom
+    //Let's remove the chatbutton
+    $('#newRoom').remove();
     if(PeerConnection){
       rtc.createStream({"video": true, "audio": true}, function(stream) {
         //debugger;
