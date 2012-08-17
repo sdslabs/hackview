@@ -15,7 +15,18 @@ var App=(function(){
       window.location.hash = randomstring;
       window.location.reload();
     });
+    Hangout.init();//call the hangout Init function
   }
+  function sanitize(msg) {
+    return msg.replace(/</g, '&lt;');
+  }
+  function removeVideo(socketId) {
+	var video = $('remote' + socketId);
+		if (video) {
+		  videos.splice(videos.indexOf(video), 1);
+		  video.parentNode.removeChild(video);
+		}
+	}
 
   return {
   	init:_init
