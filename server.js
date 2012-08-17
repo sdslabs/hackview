@@ -3,7 +3,7 @@ var express=require('express'),
 
 app.use(express.static(__dirname + '/public'));
 app.listen(8000);
-
+console.log('App running on port 8000');
 var webRTC = require('webrtc.io').listen(app);
 
 app.get('/', function(req, res) {
