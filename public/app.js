@@ -33,7 +33,7 @@ var App=(function(){
       api_key : '41386f9cfb34101b940afa34f6bfba2f',
       secret : '5dab28f693669ffb'
     },
-    boss = {
+    boss : {
       api_key : 'dj0yJmk9YWF3ODdGNWZPYjg2JmQ9WVdrOWVsWlZNRk5KTldFbWNHbzlNVEEyTURFNU1qWXkmcz1jb25zdW1lcnNlY3JldCZ4PTUz',
       secret : ' a3d93853ba3bad8a99a175e8ffa90a702cd08cfa'
     }
