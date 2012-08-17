@@ -12,6 +12,10 @@ var Hangout=(function(){
     //if you are not in a chatroom, return
     if(room.length===0)
       return false;
+
+    //We are in a chatRoom
+    //Let's remove the chatbutton
+    $('#newRoom').remove();
     if(PeerConnection){
       rtc.createStream({"video": true, "audio": true}, function(stream) {
         //debugger;
@@ -39,7 +43,13 @@ var Hangout=(function(){
         removeVideo(data);
     });
   };
-
+  function removeVideo(socketId) {
+    var video = $('remote' + socketId);
+    if (video) {
+      videos.splice(videos.indexOf(video), 1);
+      video.parentNode.removeChild(video);
+    }
+  }
   function getNumPerRow() {
     var len = videos.length;
     var biggest;
@@ -79,10 +89,10 @@ var Hangout=(function(){
   }
 
   function cloneVideo(domId, socketId) {
-    var video = $("#"+domId);
+    var video = $("#"+domId)[0];
     var clone = video.cloneNode(false);
     clone.id = "remote" + socketId;
-    $('#videos').appendChild(clone);
+    $('#videos').append(clone);
     videos.push(clone);
     return clone;
   }
