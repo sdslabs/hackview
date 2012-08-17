@@ -1,3 +1,4 @@
+//this file will get removed and be repalced with hangout.js @todo
 var videos = [];
 
 function getNumPerRow() {
