@@ -1,23 +1,13 @@
-var app = require('express').createServer();
+var express=require('express'),
+    app = express.createServer();
+
+app.use(express.static(__dirname + '/public'));
 app.listen(8000);
+
 var webRTC = require('webrtc.io').listen(app);
 
-
-
 app.get('/', function(req, res) {
-  res.sendfile(__dirname + '/index.html');
-});
-
-app.get('/style.css', function(req, res) {
-  res.sendfile(__dirname + '/style.css');
-});
-
-app.get('/webrtc.io.js', function(req, res) {
-  res.sendfile(__dirname + '/webrtc.io.js');
-});
-
-app.get('/main.js', function(req, res) {
-  res.sendfile(__dirname + '/main.js');
+  res.sendfile(__dirname + '/public/index.html');
 });
 
 webRTC.rtc.on('connect', function(rtc) {
