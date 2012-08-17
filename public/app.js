@@ -2,7 +2,7 @@
 //its like controller of the main app
 var App=(function(){
   var mode = 'hangout';
-  _createNewRoom: function(){
+  var _createNewRoom = function(){
     var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
     var string_length = 8;
     var randomstring = '';
@@ -29,11 +29,11 @@ var App=(function(){
   }
   /** Configuration for our API usage */
   var config = {
-    var flickr = {
+    flickr : {
       api_key : '41386f9cfb34101b940afa34f6bfba2f',
       secret : '5dab28f693669ffb'
     }
-  }
+  };
   //return this object with public functions
   return {
   	init:_init,
