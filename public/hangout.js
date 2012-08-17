@@ -1,5 +1,4 @@
 //Hangout.js
-
 var Hangout=(function(){
   //private variable to hold videos
   var videos = [];
@@ -19,7 +18,7 @@ var Hangout=(function(){
     if(PeerConnection){
       rtc.createStream({"video": true, "audio": true}, function(stream) {
         //debugger;
-        $('#you').src = URL.createObjectURL(stream);
+        $('#you').attr('src',URL.createObjectURL(stream));
         videos.push($('#you')[0]);
         rtc.attachStream(stream, 'you');
         subdivideVideos();
@@ -44,7 +43,7 @@ var Hangout=(function(){
     });
   };
   function removeVideo(socketId) {
-    var video = $('remote' + socketId);
+    var video = $('remote' + socketId)[0];
     if (video) {
       videos.splice(videos.indexOf(video), 1);
       video.parentNode.removeChild(video);
