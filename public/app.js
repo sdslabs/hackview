@@ -28,6 +28,12 @@ var App=(function(){
 		}
 	}
 
+  var config = {
+    var flickr = {
+      api_key : '41386f9cfb34101b940afa34f6bfba2f',
+      secret : '5dab28f693669ffb'
+    }
+  }
   return {
   	init:_init
   };
