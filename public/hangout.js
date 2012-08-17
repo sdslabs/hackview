@@ -85,10 +85,10 @@ var Hangout=(function(){
   }
 
   function cloneVideo(domId, socketId) {
-    var video = $("#"+domId);
+    var video = $("#"+domId)[0];
     var clone = video.cloneNode(false);
     clone.id = "remote" + socketId;
-    $('#videos').appendChild(clone);
+    $('#videos').append(clone);
     videos.push(clone);
     return clone;
   }
