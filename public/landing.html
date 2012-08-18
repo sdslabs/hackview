@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="nivo-slider/themes/dark/dark.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="nivo-slider/themes/bar/bar.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="nivo-slider/nivo-slider.css" type="text/css" media="screen" />
+    <link type="text/css" href="bootstrap.css" rel="stylesheet"></link>
     <link rel="stylesheet" href="nivo-slider/style.css" type="text/css" media="screen" />
 </head>
 <body>
@@ -22,13 +23,17 @@
                 <img src="nivo-slider/images/2.jpg" data-thumb="nivo-slider/images/2.jpg" alt="" />
             </div>
         </div>
-
+        <label for="nickname">Enter a Nickname</label>
+        <input type="text" class="input-xlarge" id="nickname" name="nickname"> <br />
+        <button class="btn btn-warning" href="#">Create Chat Room!</button>
     </div>
     <script type="text/javascript" src="nivo-slider/scripts/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="nivo-slider/jquery.nivo.slider.js"></script>
     <script type="text/javascript">
     $(window).load(function() {
-        $('#slider').nivoSlider();
+        $('#slider').nivoSlider({
+            effect: 'fold'
+            });
     });
     </script>
 </body>
