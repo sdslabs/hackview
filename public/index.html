@@ -4,6 +4,7 @@
     <title>[Untitled] - Yahoo! HackU</title>
     <link type="text/css" href="style.css" rel="stylesheet"></link>
     <link type="text/css" href="base.css" rel="stylesheet"></link>
+   <!-- <link type="text/css" href="chat.css" rel="stylesheet"></link>-->
     <script src="jquery.js"></script>
     <script src="webrtc.io.js"></script>
     <script src="hangout.js"></script>
@@ -11,31 +12,67 @@
     <script src="ui.js"></script>
     <script src="mobile.js"></script>
     <script src="app.js"></script>
+    <!-- sharejs stuff -->
+    <script src="/channel/bcsocket.js"></script>
+    <script src="/share/share.js"></script>
+    <script src="/share/textarea.js"></script>
   </head>
   <body>
-    <div class="container">
-      <header>
-        The RTC Application
-      </header>
-      <div class="row">
-        <div class="chat-block">
-          Space for Chat
-        </div>
-        <div id="videos">
-          <div class="topPane">
 
+    <div class="container">
+
+      <!--<header>
+        The RTC Application
+      </header>-->
+      <div class="row">
+
+        <div class="chat-block">
+          <div clas="chat-container">
+            Chat 1
+          </div>
+          <div class="text-container">
+              <textarea id="text-input"></textarea>
+          </div>
+        </div>
+
+        <div id="videos">
+          <video id="you" class="flip" autoplay></video>
+          <div class="topPane">
           </div>
           <div class="bottomPane">
             <video id="you" class="flip" autoplay></video>
+          </div>
+          <div class="bottomPane">
+          <!--<video id="you" class="flip" autoplay></video>-->
+            <textarea id="editor" disabled>Loading...</textarea>
           </div>
         </div>
         <div class="clear">
         <button id="newRoom">Create A New Room</button>
       </div>
-    </div>
+        <div id="chatbox">
+          <button id="newRoom">Create A New Room</button>
+          <div id="bottom-pane"> 
+            <div id="self"> ME </div>
+            <div> Doc Editing </div>
+          </div>
+        </div>  
+      
+  </div>
     <script>
       //Initialize the application
       App.init();
+      //ShareJS stuff
+      var elem = document.getElementById('editor');
+      sharejs.open('hello', 'text', function(error, doc) {
+        if (error) {
+          console.log(error);
+        } else {
+          elem.disabled = false;
+          console.log("read");
+          doc.attach_textarea(elem);
+        }
+      });
     </script>
   </body>
 </html>
