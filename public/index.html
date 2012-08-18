@@ -44,6 +44,19 @@
       <div class="row-fluid">
         <div class="span3 chatbox">
           <h1 id="overview">HackView</h1>
+          <button class="btn btn-warning" id="switchMode">Chat/Doc</button>
+          <script>            
+            $('#switchMode').click(function(e) {
+              if ($('.editor-container').is(":hidden")) {
+                $('.editor-container').show();
+                $('#chat-form').hide();
+              }
+              else {
+                $('.editor-container').hide();
+                $('#chat-form').show(); 
+              }
+            });
+          </script>
 
           <form id = "chat-form" class="form-inline">
             <input id="chat-edit" type="text" size="20" placeholder="Type and hit Enter">
