@@ -20,12 +20,15 @@ var App=(function(){
     var ret = Hangout.init();//call the hangout Init function
     //hangout is the full powered mode
     //default is normal browser w/o video chat
-    if(ret===false)
+    if(ret===false){
+      $('#videos').remove();
       mode='default'
+    }
     if(Mobile.init()){
       //the mode changes to mobile
       mode='mobile';
     }
+    Doc.init();
   }
   /** Configuration for our API usage */
   var config = {

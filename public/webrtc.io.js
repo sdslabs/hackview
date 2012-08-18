@@ -280,7 +280,6 @@ window.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || 
     }
   }
 
-
   rtc.addStreams = function() {
     for (var i = 0; i < rtc.streams.length; i++) {
       var stream = rtc.streams[i];
@@ -290,9 +289,7 @@ window.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || 
     }
   };
 
-
   rtc.attachStream = function(stream, el) {
-    console.log(el);
     el.autoplay='true';
     el.src = URL.createObjectURL(stream);
   };
