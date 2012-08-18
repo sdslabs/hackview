@@ -3,6 +3,23 @@ var Doc=(function(){
 
   //flickr helper function to call flickr API via YQL
   //returns results to the callback function
+  var converter = new Showdown.converter();
+
+  function handlePreview(){
+    if($('#editor').is(':visible')){
+      //we need to show the preview
+      $('#preview').html(converter.makeHtml($('#editor').val()));
+      $('#editor').hide();
+      $('#preview').fadeIn();
+      this.innerText = "Edit"
+    }
+    else{
+      $('#preview').fadeOut();
+      $('#editor').show();
+      this.innerText = "Preview"
+    }
+  }
+
   var _flickr = function(query,callback){
     var url = 'http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20flickr.photos.search%20where%20text%3D%22' + escape(query) + '%22%20and%20api_key%3D%2241386f9cfb34101b940afa34f6bfba2f%22%20limit%2010&diagnostics=true&callback=?';
     $.getJSON(url,callback);
@@ -19,6 +36,7 @@ var Doc=(function(){
         elem.disabled = false;
         doc.attach_textarea(elem);
     });
+    $('#preview-button').click(handlePreview);
   }
   return {
     render: null,

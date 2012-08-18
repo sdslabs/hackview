@@ -8,12 +8,14 @@
     <meta name="description" content="HackView is a multi-user webrtc chat with document editing features">
     <meta name="author" content="Team SDSLabs">
       <script src="jquery.js"></script>
+      <script src="showdown.js"></script>
       <script src="webrtc.io.js"></script>
       <script src="hangout.js"></script>
       <script src="doc.js"></script>
       <script src="ui.js"></script>
       <script src="mobile.js"></script>
       <script src="app.js"></script>
+
       <!-- sharejs stuff -->
       <script src="/channel/bcsocket.js"></script>
       <script src="/share/share.js"></script>
@@ -54,16 +56,16 @@
                 <video id="you" class="flip" autoplay></video>
             </div>
           </div><!--/row-->
-
           <div class="row-fluid editor-container">
             <textarea placeholder="Please enter markdown text here." id="editor" rows="10"  class="text-input" ></textarea>
-            </div>
+            <div id="preview"></div>
+          </div>
         </div><!--/span-->
       </div>
         
       </div><!--/row-->
 
-   
+    <a class="btn primary" id="preview-button">Preview</button>
     </div>
     <script>
       App.init();

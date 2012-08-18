@@ -51,8 +51,8 @@ var Hangout=(function(){
     }
     $('#videos').css('min-height',height);
     var height=window.innerHeight-height-60;
-    console.log(height);
     $('#editor').attr('rows',height/parseInt($('#editor').css('line-height'),10));
+    $('#preview').css('height',height-10);
   }
   function sendChat (message){
     UI.addChatMessage(message);
