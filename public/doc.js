@@ -32,7 +32,7 @@ var Doc=(function(){
   }
   function _init(){
     var elem = document.getElementById('editor');
-    sharejs.open('hello', 'text', function(error, doc) {
+    sharejs.open(App.getRoom(), 'text', function(error, doc) {
         elem.disabled = false;
         doc.attach_textarea(elem);
     });

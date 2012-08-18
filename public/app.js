@@ -1,7 +1,7 @@
 //app.js is the main app loader
 //its like controller of the main app
 var App=(function(){
-  var mode = 'hangout';
+  var mode = 'hangout',room='';
   var _createNewRoom = function(){
     var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
     var string_length = 8;
@@ -50,6 +50,9 @@ var App=(function(){
   	init:_init,
     getMode: function(){
       return mode;
+    },
+    getRoom: function(){
+      return room;
     }
   };
 })();
