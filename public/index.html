@@ -72,21 +72,6 @@
           console.log("read");
           doc.attach_textarea(elem);
         }
-=======
-    </div>
-    
-    <script>
-      //Initialize the application
-      App.init();
-      var elem = document.getElementById('editor');
-
-      sharejs.open('hello', 'text', function(error, doc) {
-          elem.disabled = false;
-          doc.attach_textarea(elem);
-          doc.on('change', function(op) {
-            console.log(op);
-          });
->>>>>>> basic text editor working
       });
     </script>
   </body>
