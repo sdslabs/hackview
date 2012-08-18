@@ -4,6 +4,7 @@
     <title>[Untitled] - Yahoo! HackU</title>
     <link type="text/css" href="style.css" rel="stylesheet"></link>
     <link type="text/css" href="base.css" rel="stylesheet"></link>
+   <!-- <link type="text/css" href="chat.css" rel="stylesheet"></link>-->
     <script src="jquery.js"></script>
     <script src="webrtc.io.js"></script>
     <script src="hangout.js"></script>
@@ -14,13 +15,22 @@
   </head>
   <body>
     <div class="container">
-      <header>
+
+      <!--<header>
         The RTC Application
-      </header>
+      </header>-->
+
       <div class="row">
+
         <div class="chat-block">
-          Space for Chat
+          <div clas="chat-container">
+            Chat 1
+          </div>
+          <div class="text-container">
+              <textarea id="text-input"></textarea>
+          </div>
         </div>
+
         <div id="videos">
           <div class="topPane">
 
@@ -29,12 +39,20 @@
             <video id="you" class="flip" autoplay></video>
           </div>
         </div>
-         <div class="clear">
-      <div id="chatbox">
-        <button id="newRoom">Create A New Room</button>
+         <!--<div class="clear" />-->
+
+>>>>>>> Incomplete attempt to design layout
       </div>
-     
-    </div>
+      
+        <div id="chatbox">
+          <button id="newRoom">Create A New Room</button>
+          <div id="bottom-pane"> 
+            <div id="self"> ME </div>
+            <div> Doc Editing </div>
+          </div>
+        </div>  
+      
+  </div>
     <script>
       //Initialize the application
       App.init();

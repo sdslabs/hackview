@@ -19,12 +19,17 @@ var Hangout=(function(){
       rtc.createStream({"video": true, "audio": true}, function(stream) {
         //debugger;
         $('#you').attr('src',URL.createObjectURL(stream));
+        console.log($('#you'));
+        $('#you').attr('width',150).attr('height',125);
+        $('#self').html($('#you'));
+
+
         videos.push($('#you')[0]);
         rtc.attachStream(stream, 'you');
         subdivideVideos();
         window.onresize=subdivideVideos;
       });
-    }else {
+    } else {
       return false;
     }
     
@@ -90,12 +95,24 @@ var Hangout=(function(){
   }
 
   function setWH(video, i) {
+    /*
+    var perRow = getNumPerRow();
+    var perColumn = Math.ceil(videos.length / perRow);
+    var width = Math.floor((window.innerWidth) / perRow);
+    var height = Math.floor((window.innerHeight) / perColumn);
+    video.width = width;
+    video.height = height;
+    video.style.position = "absolute";
+    video.style.left = (i % perRow) * width + "px";
+    video.style.top = Math.floor(i / perRow) * height + "px";
+    */
   }
 
   function cloneVideo(domId, socketId) {
     var video = $("#"+domId)[0];
     var clone = video.cloneNode(false);
     clone.id = "remote" + socketId;
+    console.log(clone);
     $('#videos').append(clone);
     videos.push(clone);
     return clone;
