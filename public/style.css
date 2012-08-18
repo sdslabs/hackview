@@ -48,12 +48,12 @@ div.container{
 -webkit-transform: rotateY(180deg);
 }
 
-.bottomVideo {
+.bottomPane {
 height: 150px;
 text-align: center;
 }
 
-.topVideos {
+.topPane {
 height: 350px;
 }
 
