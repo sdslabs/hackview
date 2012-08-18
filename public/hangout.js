@@ -1,7 +1,7 @@
 //Hangout.js
 var Hangout=(function(){
   //private variable to hold videos
-  var videos = [],room='';
+  var room='';
   //This will include all the rtc stuff
   //once this is called, it will attach to all required events.
   //here
@@ -11,22 +11,14 @@ var Hangout=(function(){
     //if you are not in a chatroom, return
     if(room.length===0)
       return false;
-
-    //We are in a chatRoom
-    //Let's remove the chatbutton
-    $('#newRoom').remove();
+    
     if(PeerConnection){
       rtc.createStream({"video": true, "audio": true}, function(stream) {
         //debugger;
         $('#you').attr('src',URL.createObjectURL(stream));
-        console.log($('#you'));
-        //$('#you').attr('width',150).attr('height',125);
-        $('#self').html($('#you'));
-
-        videos.push($('#you')[0]);
-        rtc.attachStream(stream, 'you');
-        subdivideVideos();
-        window.onresize=subdivideVideos;
+        rtc.attachStream(stream, $('#you'));
+        refreshDisplay();
+        window.onresize=refreshDisplay;
       });
     } else {
       return false;
@@ -35,73 +27,35 @@ var Hangout=(function(){
     rtc.connect("ws://"+window.location.hostname+":8000/", room);
 
     rtc.on('add remote stream', function(stream, socketId) {
-      console.log("ADDING REMOTE STREAM...");
-      var clone = cloneVideo('you', socketId);
-      $("#"+clone.id).attr("class", "");
-      rtc.attachStream(stream, clone.id);
-      subdivideVideos();
+      var video = $('<video />').attr('rel',socketId).appendTo('#videos')[0];
+      rtc.attachStream(stream, video);
+      refreshDisplay();
     });
-    rtc.on('disconnect stream', function(data) {
-        console.log('remove ' + data);
-        removeVideo(data);
+    rtc.on('disconnect stream', function(socketId) {
+        $('video[rel="'+socketId+'"]').remove();
     });
     rtc.on('receive_chat_msg', function(data){
       UI.addChatMessage(data.msg);
     })
   };
-  function removeVideo(socketId) {
-    var video = $('remote' + socketId)[0];
-    if (video) {
-      videos.splice(videos.indexOf(video), 1);
-      video.parentNode.removeChild(video);
+
+  function refreshDisplay(){
+    var vids=$('#videos video');
+    var count = vids.length;
+    count=count<1 ? 1:count;
+    var maxWidth = 400*count;
+    var width = $('#videos').width();
+    if(width>maxWidth)
+      width=maxWidth;
+    var width = width/count;
+    var height=3/4*width;
+    for(i=0;i<count;i++){
+      vids[i].width=width;
+      vids[i].height=height;
+      $(vids[i]).css('left',i*width+10);
     }
+    $('#videos').css('min-height',height);
   }
-  function getNumPerRow() {
-    var len = videos.length;
-    var biggest;
-
-    // Ensure length is even for better division.
-    if (len % 2 === 1) {
-      len++;
-    }
-
-    biggest = Math.ceil(Math.sqrt(len));
-    while (len % biggest !== 0) {
-      biggest++;
-    }
-    return biggest;
-  }
-
-  function subdivideVideos() {
-    if(videos.length<=1){
-      videos.map(function(x){
-        x.width=400;
-        x.height=300;
-        return x;
-      })
-
-    }
-    console.log(videos.length);
-    var numInRow = 0;
-    for (var i = 0, len = videos.length; i < len; i++) {
-      console.log(len);
-      var video = videos[i];
-      console.log($('video').width());
-      video.width = $('#videos').width/len;
-      video.height = $(document).height-400;
-    }
-  }
-
-  function cloneVideo(domId, socketId) {
-    var video = $("#"+domId)[0];
-    var clone = video.cloneNode(false);
-    clone.id = "remote" + socketId;
-    console.log(clone);
-    $('#videos').append(clone);
-    videos.push(clone);
-    return clone;
-  }
-
   function sendChat(message){
     rtc._socket.send(JSON.stringify({
       eventName:"chat_msg",

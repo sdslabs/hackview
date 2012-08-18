@@ -291,8 +291,10 @@ window.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || 
   };
 
 
-  rtc.attachStream = function(stream, domId) {
-    document.getElementById(domId).src = URL.createObjectURL(stream);
+  rtc.attachStream = function(stream, el) {
+    console.log(el);
+    el.autoplay='true';
+    el.src = URL.createObjectURL(stream);
   };
 
   rtc.on('ready', function() {
