@@ -8,11 +8,9 @@ var Hangout=(function(){
   function __init() {
     if(PeerConnection){
       rtc.createStream({"video": true, "audio": true}, function(stream) {
-        //debugger;
         $('#you').attr('src',URL.createObjectURL(stream));
         rtc.attachStream(stream, $('#you'));
-        refreshDisplay();
-        window.onresize=refreshDisplay;
+        UI.refresh();
       });
     } else {
       return false;
@@ -23,7 +21,7 @@ var Hangout=(function(){
     rtc.on('add remote stream', function(stream, socketId) {
       var video = $('<video />').attr('rel',socketId).appendTo('#videos')[0];
       rtc.attachStream(stream, video);
-      refreshDisplay();
+      UI.refresh();
     });
     rtc.on('disconnect stream', function(socketId) {
         $('video[rel="'+socketId+'"]').remove();
@@ -33,26 +31,7 @@ var Hangout=(function(){
     })
   };
 
-  function refreshDisplay(){
-    var vids=$('#videos video');
-    var count = vids.length;
-    count=count<1 ? 1:count;
-    var maxWidth = 400*count;
-    var width = $('#videos').width();
-    if(width>maxWidth)
-      width=maxWidth;
-    var width = width/count;
-    var height=3/4*width;
-    for(i=0;i<count;i++){
-      vids[i].width=width;
-      vids[i].height=height;
-      $(vids[i]).css('left',i*width);
-    }
-    $('#videos').css('min-height',height);
-    var height=window.innerHeight-height-60;
-    $('#editor').attr('rows',height/parseInt($('#editor').css('line-height'),10));
-    $('#preview').css('height',height+10);
-  }
+  //Sends chat using rtc sockets
   function sendChat (message){
     UI.addChatMessage(message);
     rtc._socket.send(JSON.stringify({
@@ -65,10 +44,8 @@ var Hangout=(function(){
       console.log(err);
     });
   };
+
   return {
-    enterRoom:null,
-    leaveRoom:null,
-    changeView:null,
     init:__init,
     chat:sendChat
   };

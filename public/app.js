@@ -35,6 +35,7 @@ var App=(function(){
       mode='mobile';
     }
     Doc.init();
+    UI.refresh();
   }
   /** Configuration for our API usage */
   var config = {
