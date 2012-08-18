@@ -10,6 +10,10 @@ var UI=(function(){
 		Hangout.chat(val);
 		//UI.addChatMessage(val);
 	  });
+    $('.md-icon').on('click', function() {
+      var option = $(this).attr('id');
+      Doc.toolbar(option);
+    });
   });
 
   //Function to refresh the UI depending on various things
@@ -34,21 +38,29 @@ var UI=(function(){
     $('#preview').css('height',height+10);
   }
 
+
+  //Function to add FlickR image to editor
+  // $('#pic-icon').on('click', '$("#editor")', function(event) {
+  //   event.preventDefault();
+  //   console.log('hello');
+  //   $(this).append('hello world');
+  // });
+
   //this will handle the UI Portions
   return {
   	//this changes view to particular contact
     changeView:null,
     //returns whether we are viewing this in single Theater Mode
     getMode:  function(){
-	  return $('#theatre').is(':checked');
-	},
-	addChatMessage:function(msg){
-	  //@todo Add this to the window as a div
-	  //when we have the interface
-	  var chatMessage = $('<div/>').attr('class','chat-message').text( msg )
-	  $('#overview').after( chatMessage );
+  	  return $('#theatre').is(':checked');
+  	},
+	  addChatMessage:function(msg){
+  	  //@todo Add this to the window as a div
+  	  //when we have the interface
+  	  var chatMessage = $('<div/>').attr('class','chat-message').text( msg )
+  	  $('#overview').after( chatMessage );
 
-	},
+	  },
     refresh:_refresh
   };
 })();

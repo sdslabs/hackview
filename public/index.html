@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,6 +7,7 @@
     <meta name="description" content="HackView is a multi-user webrtc chat with document editing features">
     <meta name="author" content="Team SDSLabs">
       <script src="jquery.js"></script>
+      <script src="textinputs_jquery.js"></script>
       <script src="showdown.js"></script>
       <script src="webrtc.io.js"></script>
       <script src="hangout.js"></script>
@@ -76,13 +76,11 @@
           </div><!--/row-->
           <div class="row-fluid editor-container">
             <div id="icon-dock">
-              <img class="md-icon" src="icons/bold.png" alt="Bold" title="Bold">
-              <img class="md-icon" src="icons/italic.png" alt="Italic" title="Italic">
-              <img class="md-icon" src="icons/link.png" alt="Link" title="Insert Link">
-              <img class="md-icon" src="icons/code.png" alt="Codeblock" title="Codeblock">
-              <img class="md-icon" src="icons/list.png" alt="List" title="Create List">
-              <img class="md-icon" src="icons/pic.png" alt="Picture" title="Insert Picture">
-              <img class="md-icon" src="icons/magic.png" alt="BOSS" title="Search Yahoo!">
+              <img id="bold-icon" class="md-icon" src="icons/bold.png" alt="Bold" title="Bold">
+              <img id="italic-icon" class="md-icon" src="icons/italic.png" alt="Italic" title="Italic">
+              <img id="link-icon" class="md-icon" src="icons/link.png" alt="Link" title="Insert Link">
+              <img id="pic-icon" class="md-icon" src="icons/pic.png" alt="Picture" title="Insert Picture">
+              <img id="boss-icon" class="md-icon" src="icons/magic.png" alt="BOSS" title="Search Yahoo!">
             </div>
             <textarea placeholder="Please enter markdown text here." id="editor" rows="10"  class="text-input" width="100%"></textarea>
             <div id="preview">
