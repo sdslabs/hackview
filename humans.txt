@@ -1,0 +1,16 @@
+//Team SDSLabs
+Abhay Rana <me@captnemo.in>, http://captnemo.in
+Abhishek Das <das.abshkdz@gmail.com>
+Ashwini Khare <khare.ashwini@gmail.com>, http://ashwinikhare.in
+Shashank Mehta <shashankm.leo@gmail.com>, http://shashankmehta.in
+
+- Source Code available at https://github.com/sdslabs/hackview
+- Created in a Yahoo! Hackathon Contest @ IIT-Delhi
+
+SDSLabs is a student organization at IIT-Roorkee, working on cool stuff like this hack. You can learn more about SDSlabs at the following links:
+
+- http://sdslabs.co/
+- http://blog.sdslabs.co/
+- http://facebook.com/SDSLabs
+
+
