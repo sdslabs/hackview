@@ -3,9 +3,50 @@
 and (min-device-width : 320px) 
 and (max-device-width : 480px) {
 /* Styles */
+	@font-face {
+	  font-family: 'Lobster';
+	  font-style: normal;
+	  font-weight: 400;
+	  src: url('fonts/lobster.ttf');
+	}
+
+	body {
+  		overflow:scroll;
+	}
+
+	#switchMode {
+		display: block;
+	}
   	.editor-container, #preview-button {
         display: none;
     }
+
+    #overview {
+    	font-family: "Lobster";
+    }
+
+    #switchMode {
+    	width: 100px;
+    	position: absolute;
+    	right: 20px;
+    	top: 20px;
+    }
+    .row-fluid .span9 {
+		width: 100%;    
+		margin-top: 30px;	
+    }
+    .md-icon {
+		margin: 11px -5px 7px 28px;
+	}
+	#icon-dock {
+		margin: 0 0 0 -15px;
+	}
+	.editor-container {
+		-webkit-box-shadow: 0px 0px 15px #999;
+	}
+	.row-fluid .span3 {
+		width: 100%;
+	}
 }
 
 /* Smartphones (landscape) ----------- */

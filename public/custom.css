@@ -171,3 +171,7 @@ div.chat-message{
     color: #222;
     margin: 2px;
 }
+
+#switchMode {
+    display: none;
+}
