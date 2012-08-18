@@ -3,7 +3,7 @@
 and (min-device-width : 320px) 
 and (max-device-width : 480px) {
 /* Styles */
-  	.editor-container {
+  	.editor-container, #preview-button {
         display: none;
     }
 }
