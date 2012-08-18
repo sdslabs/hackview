@@ -20,9 +20,8 @@ var Hangout=(function(){
         //debugger;
         $('#you').attr('src',URL.createObjectURL(stream));
         console.log($('#you'));
-        $('#you').attr('width',150).attr('height',125);
+        //$('#you').attr('width',150).attr('height',125);
         $('#self').html($('#you'));
-
 
         videos.push($('#you')[0]);
         rtc.attachStream(stream, 'you');
@@ -74,38 +73,23 @@ var Hangout=(function(){
   }
 
   function subdivideVideos() {
-    if(UI.getMode()==='theater'){
-      //let us only show the first video for now
-      for (var i = 0, len = videos.length; i < len; i++) {
-        var video = videos[i];
-        $(video).hide();
-      }
-     }
-    else{
-      $('#videos video').show();
-      //show all the videos
-      var perRow = getNumPerRow();
-      var numInRow = 0;
-      for (var i = 0, len = videos.length; i < len; i++) {
-        var video = videos[i];
-        setWH(video, i);
-        numInRow = (numInRow + 1) % perRow;
-      }
-    }
-  }
+    if(videos.length<=1){
+      videos.map(function(x){
+        x.width=400;
+        x.height=300;
+        return x;
+      })
 
-  function setWH(video, i) {
-    /*
-    var perRow = getNumPerRow();
-    var perColumn = Math.ceil(videos.length / perRow);
-    var width = Math.floor((window.innerWidth) / perRow);
-    var height = Math.floor((window.innerHeight) / perColumn);
-    video.width = width;
-    video.height = height;
-    video.style.position = "absolute";
-    video.style.left = (i % perRow) * width + "px";
-    video.style.top = Math.floor(i / perRow) * height + "px";
-    */
+    }
+    console.log(videos.length);
+    var numInRow = 0;
+    for (var i = 0, len = videos.length; i < len; i++) {
+      console.log(len);
+      var video = videos[i];
+      console.log($('video').width());
+      video.width = $('#videos').width/len;
+      video.height = $(document).height-400;
+    }
   }
 
   function cloneVideo(domId, socketId) {

@@ -1,78 +1,292 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>[Untitled] - Yahoo! HackU</title>
-    <link type="text/css" href="style.css" rel="stylesheet"></link>
-    <link type="text/css" href="base.css" rel="stylesheet"></link>
-   <!-- <link type="text/css" href="chat.css" rel="stylesheet"></link>-->
-    <script src="jquery.js"></script>
-    <script src="webrtc.io.js"></script>
-    <script src="hangout.js"></script>
-    <script src="doc.js"></script>
-    <script src="ui.js"></script>
-    <script src="mobile.js"></script>
-    <script src="app.js"></script>
-    <!-- sharejs stuff -->
-    <script src="/channel/bcsocket.js"></script>
-    <script src="/share/share.js"></script>
-    <script src="/share/textarea.js"></script>
+    <meta charset="utf-8">
+    <title>Bootstrap, from Twitter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+      <script src="jquery.js"></script>
+      <script src="webrtc.io.js"></script>
+      <script src="hangout.js"></script>
+      <script src="doc.js"></script>
+      <script src="ui.js"></script>
+      <script src="mobile.js"></script>
+      <script src="app.js"></script>
+      <!-- sharejs stuff -->
+      <script src="/channel/bcsocket.js"></script>
+      <script src="/share/share.js"></script>
+      <script src="/share/textarea.js"></script>
+    <!-- Le styles -->
+    <link type="text/css" href="bootstrap.css" rel="stylesheet"></link>
+    <style type="text/css">
+      body {
+        padding-top: 10px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+      .text-input{
+        width:100%;
+        border:none;
+        background:transparent;
+        height:100%;
+      }
+      #chat-edit{
+        border:1px solid #222 ;
+      }
+      #editor{
+        height:300px;
+        font-size:1.3em;
+        line-height:1.6em;
+        background-size:80% auto;
+      }
+      #editor:focus{
+        border:none;
+        outline: none;
+        -webkit-box-shadow:none;
+      }
+      #videos video {
+        display: inline;
+        position: absolute;
+      }
+      #videos{
+        position: relative;
+        margin: 0 auto;
+      }
+    </style>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
   </head>
+
   <body>
 
-    <div class="container">
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3 chatbox">
+          <textarea id="chat-edit" class="text-input"></textarea>
+        </div><!--/span-->
+        <div class="span9">
+          <div class="row-fluid">
+            <div id="videos">
+                <video id="you" class="flip" autoplay></video>
+            </div>
+          </div><!--/row-->
+          <div class="row-fluid">
+            <textarea id="editor" rows="10"  class="text-input" >
+                  Yahoo HackU
 
-      <!--<header>
-        The RTC Application
-      </header>-->
-      <div class="row">
+"Yahoo has invited three teams from IITR, one from SDSLabs, teams of four to participate in the IITD edition of HackU ( 16/08 - 19/08 )"
 
-        <div class="chat-block">
-          <div clas="chat-container">
-            Chat 1
-          </div>
-          <div class="text-container">
-              <textarea id="text-input"></textarea>
-          </div>
-        </div>
-
-        <div id="videos">
-          <video id="you" class="flip" autoplay></video>
-          <div class="topPane">
-          </div>
-          <div class="bottomPane">
-            <video id="you" class="flip" autoplay></video>
-          </div>
-          <div class="bottomPane">
-          <!--<video id="you" class="flip" autoplay></video>-->
-            <textarea id="editor" disabled>Loading...</textarea>
-          </div>
-        </div>
-        <div class="clear">
-        <button id="newRoom">Create A New Room</button>
+- [COMPLETE] Ideas
+  "Chosen Idea: Yahoo Hangouts!"
+  - [COMPLETE] Something Using Mohito
+    "Dropped mojito coz of lack of documentation and support."
+    - Mohito is an excellent node.js framework recently released by Yahoo
+    - Very little chance that someone will be using it
+    - Its a real-time framework, so we can do some really cool stuff with it
+    - Mohito
+      - http://developer.yahoo.com/blogs/ydn/posts/2012/04/yahoo%E2%80%99s-mojito-is-now-open-source/
+      - http://developer.yahoo.com/cocktails/mojito/
+      - http://github.com/yahoo/mojito/
+  - Yahoo Hangouts
+    "WebRTC based multi-user hangout"
+    - Video Chat
+      - Do some fallback for no-webcams
+      - No idea about support in mobile devices, but we would need to put in something there
+        - Fallback to showing video streams, and the document editor only, if possible
+        - For a very small screen device, change the interface to something better
+          - Swipe to change through people cameras, one special view for editor.
+    - Simple real time collaborative editing using sharejs
+      - Document syntax should be markdown.
+      - Don't worry about history or revisions or stuff like that (unless sharejs can help us out with it)
+      - Give out a document preview link for people who cannot join the hangout.
+    - Write code using mohito, node, yui
+    - Use YUI if possible instead of bootstrap
+    - Integrate automatically with Yahoo Social apis for share invites
+      - Doesn't matter if we don't have much, just get a list of users to share the room with
+    - Simple chat using node (per chatroom)
+      - Add a simple bot to chatroom if possible
+      - Hubot comes as a node module, so we can use it with our own adapter
+    - Interface
+      - Similar to G+ Hangouts
+      - Choose from between video and document as the main view mode
+      - The rest of the streams are visible down below (and hideable)
+      - examples
+        - http://meetings.io
+        - http://www.readwriteweb.com/archives/skype_gets_group_video_chat.php
+    - Optional
+      - This might be controversial (Entire Idea to itself, really)
+      - Build a "lets all view it together client for yahoo trailers"
+      - Real time chat between viewers watching the same thing.
+      - This converts a video link from yahoo to a chatroom link, basically
+      - Embed a video, get it to fullscreen, and rest is simple enough.
+    - Presentation
+      - USP: webrtc is like lan chat if the people are on the same network
+  - EMail to WebHooks
+    - clone emailyak.com
+    - use content analysis api and send analysis as well
+    - 1. we get email
+    - 2. we parse email
+    - 3. convert to json
+    - 4. send to a specified url with POST
+    - 5. attach yahoo content analysis results with json
+- Winning Strategy
+  "How are we going to win this thing."
+  - 1. Responsive Design
+    "Get it to work on ipad/android/desktop"
+  - 2. Use yahoo shit
+    "Get brownie points for it. You can with w/o it though (bronx)"
+  - 3. Dazzle people throughout
+    "Use Monitor/iPad and impress people. We represent #iitr"
+- Research Work
+  "#underprogress"
+  - Data services
+    - Music @shashank 
+    - Video @shashank 
+    - Flickr @ashwini
+    - Search api boss
+    - Pipes, rss
+  - Webrtc @nemo
+  - Chat messenger @nemo/das
+    - Chatrooms possibility
+    - Video Chat (?)
+  - Sharejs @das
+  - Other Tech (Secondary)
+    - Hubot
+    - Partychat
+- Links
+  "Post links & try to keep stuff organized"
+  - WebRTC
+    - Demos
+      - Dirtyshare
+        "http://share.gun.io:8080/458b3wgr"
+      - DHT on browser http://jinroh.github.com/kadoh/
+      - https://apprtc.appspot.com/
+        "Video Chat 1:1 Demo"
+      - http://labs.opentok.com/try/
+    - References
+      - http://www.html5rocks.com/en/tutorials/webrtc/basics/
+        "Getting Started with webRTC "
+      - http://www.webrtc.org/reference/
+      - http://joincollage.com/webp2p
+    - Packages/Libraries
+      - https://github.com/Raynos/webrtc-stream
+        "Can't figure out what it does."
+      - http://phono.com/webrtc
+        "Phone-Like libraries for browsers to make phone calls/sms calls."
+      - https://github.com/webrtc
+        "Github organization working on webrtc.
+        "
+  - Yahoo/OpenHack/HackU
+    - Presentations
+      - http://www.slideshare.net/saurabhsahni/
+        "@saurabhsahni presentations "
+    - Blog Posts and Winner Entries
+      - Experience of a 2009 participant : http://www.cse.iitd.ernet.in/~acm/kunal-says-about-hack-u-2009/ 
+      - This year's entries (IITB) : http://hacks.developer.yahoo.com/hacks/IIT-Bombay-HackU/event_1
+      - IITD sum up : official blog post : http://developer.yahoo.com/blogs/ydn/posts/2011/11/hackstravaganza-at-iit-delhi/ 
+      - Yahoo Open HackDay entries(event on similar lines) : http://hacks.developer.yahoo.com/hacks/yahoo-open-hack-india-2012/event_2 
+      - Openhack 2012 Summary : http://developer.yahoo.com/blogs/ydn/posts/2012/08/open-hack-india-delivers-once-again/ 
+      - IIT KGP's Winners and details(the winner is a music application) : http://developer.yahoo.com/blogs/ydn/posts/2012/04/hacku-at-iit-kharagpur-how-sweet-can-it-get/ 
+    - Official Stuff
+      - Official Page : http://in.hacku.yahoo.com/ 
+      - ACM - IITD page(hosts) : http://www.cse.iitd.ernet.in/~acm/yahoo-hacku-2012/ 
+      - Facebook Event : https://www.facebook.com/events/322691607821735/
+      - Last year's Winners (IITD) : http://www.cse.iitd.ac.in/~acm/results/ 
+      - Terms : http://in.hacku.yahoo.com/uploads/T&C.pdf
+  - Yahoo API/Services
+    "Trying to figure out what APIs can/should we use"
+    - Term Extraction (like Phrasie)
+      "http://developer.yahoo.com/search/content/V1/termExtraction.html"
+    - Music API Guide (Detailed)
+      "http://developer.yahoo.com/music/api_guide/"
+    - Messenger SDK
+      "http://developer.yahoo.com/messenger/guide/chapterintrotomessengersdk.html"
+    - Flickr API
+      "http://www.flickr.com/services/api/"
+    - Flickr Developer Guide
+      "http://developer.yahoo.com/flickr/"
+    - All Y! APIs
+      "http://developer.yahoo.com/everything.html?category=all&view=detail"
+    - ContentAnalysis API
+      "http://developer.yahoo.com/search/content/V2/contentAnalysis.html"
+- Application Specifications
+  "This is the official spec document. Any changes to the design/implementation should be mentioned here."
+  - Features
+    - Have to deploy to heroku, figure out for that as well
+    - webRTC based multi-user Video Chat #core-feature
+    - Chat
+      - Using webrtc sockets support
+      - Using Y! Messenger API
+      - File Sharing if possible
+      - Video chat integration with Y! messenger
+      - Chatroom Support
+    - Colloborative Document Editing
+      - using sharejs
+      - markdown based (allow preview)
+      - integrate with BOSS, and FLICKR
+    - Responsive Design
+      - Open across all browsers and devices
+      - Degrade gracefully to non-video-chat version on no webrtc Support
+  - Probables
+    - TextExtraction API
+      - Gives out terms (tags) for a block of text
+      - We can use it to tag the current document
+- What am I doing
+  "Use it like the "working on" hubot command"
+  - @nemo
+    - Trying to get the webrtc multi-user chat demo to work
+      - Installing npm packages
+      - Got it to work
+    - Finding Y! APIs
+    - Looking at exciting webrtc, webp2p projects
+    - Installing runjs - doesn't work
+    - Checking up on everyone, committing cleaner code
+    - still working on js
+  - @shashank
+    - interface
+      - fluid layout
+      - making mockups
+    - Responsive Design
+    - skeleton.css
+  - @das 
+    - working on collaborative doc editing using sharejs
+    - flickr API & BOSS API 
+      - @ashwini worked on the YQL. 
+      - @das work on integration with the editor
+    - will work on integrating Hubot after this
+  - @ashwini
+    - the JS :D
+    - JQuery, modular
+                </textarea>
+            </div>
+        </div><!--/span-->
       </div>
-        <div id="chatbox">
-          <button id="newRoom">Create A New Room</button>
-          <div id="bottom-pane"> 
-            <div id="self"> ME </div>
-            <div> Doc Editing </div>
-          </div>
-        </div>  
-      
-  </div>
+        
+      </div><!--/row-->
+
+   
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
     <script>
-      //Initialize the application
       App.init();
-      //ShareJS stuff
-      var elem = document.getElementById('editor');
-      sharejs.open('hello', 'text', function(error, doc) {
-        if (error) {
-          console.log(error);
-        } else {
-          elem.disabled = false;
-          console.log("read");
-          doc.attach_textarea(elem);
-        }
-      });
     </script>
+
   </body>
 </html>
