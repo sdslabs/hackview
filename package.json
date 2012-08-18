@@ -22,6 +22,5 @@
   },
   "scripts": {
     "start": "node ./server.js"
-  },
-  "subdomain": "hackview"
+  }
 }
