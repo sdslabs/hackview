@@ -6,7 +6,15 @@
     "webrtc.io":"0.0.x",
     "share":"0.5.x"
   },
+  "author": "Team SDSLabs <contact@sdslabs.co.in>",
+  "contributors":[
+     {"name":"Abhay Rana","email":"me@captnemo.in"},
+     {"name":"Abhishek Das","email":"das.abhskdz@gmail.com"}
+  ],
   "engines":{
     "node":"0.6.20"
+  },
+  "scripts":{
+     "start":"node ./server.js"
   }
 }
