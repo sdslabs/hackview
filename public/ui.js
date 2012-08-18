@@ -1,15 +1,13 @@
 var UI=(function(){
-
-	$(document).ready(function hooks(){
-
-		$('#chat-form').submit(function(e){
-			e.preventDefault();
-			var val =  $('#chat-edit').val();
-			$('#chat-edit').val('');
-			Hangout.chat(val);
-			//UI.addChatMessage(val);
-		});
-	});
+  $(document).ready(function hooks(){
+	  $('#chat-form').submit(function(e){
+		e.preventDefault();
+		var val =  $('#chat-edit').val();
+		$('#chat-edit').val('');
+		Hangout.chat(val);
+		//UI.addChatMessage(val);
+	  });
+  });
   //this will handle the UI Portions
   return {
   	//this changes view to particular contact

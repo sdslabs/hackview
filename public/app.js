@@ -17,8 +17,10 @@ var App=(function(){
   function _init(){
     room = window.location.hash.slice(1);
     //if you are not in a chatroom, return
-    if(room.length===0)
+    if(room.length===0){
       document.location = '/landing.html';
+      return false;//so that we do not ask for permissions and anything else.
+    }
     //attach some events at the start	
     $('#newRoom').click(_createNewRoom);
     var ret = Hangout.init();//call the hangout Init function

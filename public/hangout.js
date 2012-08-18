@@ -1,7 +1,6 @@
 //Hangout.js
 var Hangout=(function(){
   //private variable to hold videos
-  var room='';
   //This will include all the rtc stuff
   //once this is called, it will attach to all required events.
   //here
@@ -18,8 +17,8 @@ var Hangout=(function(){
     } else {
       return false;
     }
-    
-    rtc.connect("ws://"+window.location.hostname+":8000/", room);
+
+    rtc.connect("ws://"+window.location.hostname+":8000/", App.getRoom());
 
     rtc.on('add remote stream', function(stream, socketId) {
       var video = $('<video />').attr('rel',socketId).appendTo('#videos')[0];
@@ -60,7 +59,7 @@ var Hangout=(function(){
       eventName:"chat_msg",
       data:{
         msg:message,
-        room:room
+        room:App.getRoom()
       }
     }),function(err){
       console.log(err);
