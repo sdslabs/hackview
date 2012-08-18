@@ -8,12 +8,14 @@
     <meta name="description" content="HackView is a multi-user webrtc chat with document editing features">
     <meta name="author" content="Team SDSLabs">
       <script src="jquery.js"></script>
+      <script src="showdown.js"></script>
       <script src="webrtc.io.js"></script>
       <script src="hangout.js"></script>
       <script src="doc.js"></script>
       <script src="ui.js"></script>
       <script src="mobile.js"></script>
       <script src="app.js"></script>
+
       <!-- sharejs stuff -->
       <script src="/channel/bcsocket.js"></script>
       <script src="/share/share.js"></script>
@@ -21,6 +23,7 @@
     <!-- Le styles -->
     <link type="text/css" href="bootstrap.css" rel="stylesheet"></link>
     <link type="text/css" href="custom.css" rel="stylesheet"></link>
+
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -39,8 +42,13 @@
     <div class="container-fluid">
       <div class="row-fluid">
         <div class="span3 chatbox">
+
           <h1 id="overview">HackView</h1>
-          <input id="chat-edit" class="text-input"></input>
+          <form id = "chat-form">
+            <input id="chat-edit" class="text-input" type="text"></input>
+            <input type="button" class="btn" value="Submit">
+          </form>
+
         </div><!--/span-->
         <div class="span9">
           <div class="row-fluid">
@@ -48,7 +56,6 @@
                 <video id="you" class="flip" autoplay></video>
             </div>
           </div><!--/row-->
-
           <div class="row-fluid editor-container">
             <div id="icon-dock">
               <img class="md-icon" src="icons/bold.png" alt="Bold">
@@ -60,13 +67,14 @@
               <img class="md-icon" src="icons/magic.png" alt="BOSS">
             </div>
             <textarea placeholder="Please enter markdown text here." id="editor" rows="10"  class="text-input" ></textarea>
-            </div>
+            <div id="preview"></div>
+          </div>
         </div><!--/span-->
       </div>
         
       </div><!--/row-->
 
-   
+    <a class="btn primary" id="preview-button">Preview</button>
     </div>
     <script>
       App.init();
