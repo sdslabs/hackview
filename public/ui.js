@@ -5,8 +5,9 @@ var UI=(function(){
 		$('#chat-form').submit(function(e){
 			e.preventDefault();
 			var val =  $('#chat-edit').val();
-			UI.addChatMessage(val);
-			console.log( val );
+			$('#chat-edit').val('');
+			Hangout.chat(val);
+			//UI.addChatMessage(val);
 		});
 	});
   //this will handle the UI Portions
