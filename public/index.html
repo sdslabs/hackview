@@ -21,50 +21,6 @@
     <!-- Le styles -->
     <link type="text/css" href="bootstrap.css" rel="stylesheet"></link>
     <link type="text/css" href="custom.css" rel="stylesheet"></link>
-    <style type="text/css">
-      body {
-        padding-top: 10px;
-        padding-bottom: 40px;
-      }
-      .sidebar-nav {
-        padding: 9px 0;
-      }
-      .text-input{
-        width:100%;
-        border:none;
-        background:transparent;
-        height:100%;
-      }
-      #chat-edit{
-        border:1px solid #222 ;
-      }
-      #editor{
-        height:550px;
-        font-size:1.3em;
-        line-height:1.6em;
-        background-size:80% auto;
-        padding: 20px 30px;
-      }
-      #editor:focus{
-        border:none;
-        outline: none;
-        -webkit-box-shadow:none;
-      }
-      #videos video {
-        display: inline;
-        position: absolute;
-      }
-      #videos{
-        position: relative;
-        margin: 0 auto;
-        padding-bottom:20px;
-      }
-      .editor-container {
-        background: url(fibers.png);
-        -webkit-box-shadow: -3px -3px 10px #ccc;
-      }
-    </style>
-
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -83,7 +39,8 @@
     <div class="container-fluid">
       <div class="row-fluid">
         <div class="span3 chatbox">
-          <textarea id="chat-edit" class="text-input"></textarea>
+          <h1 id="overview">HackView</h1>
+          <input id="chat-edit" class="text-input"></input>
         </div><!--/span-->
         <div class="span9">
           <div class="row-fluid">
