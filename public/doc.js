@@ -10,10 +10,12 @@ var Doc=(function(){
       //we need to show the preview
       $('#preview').html(converter.makeHtml($('#editor').val()));
       $('#editor').hide();
+      $('#icon-dock').hide();
       $('#preview').fadeIn();
       this.innerText = "Edit"
     }
     else{
+      $('#icon-dock').fadeIn();
       $('#preview').fadeOut();
       $('#editor').show();
       this.innerText = "Preview"

@@ -2,7 +2,44 @@
   font-family: 'Lobster';
   font-style: normal;
   font-weight: 400;
-  src: local('Lobster'), url('lobster.woff') format('woff');
+  src: local('Lobster'), url('fonts/lobster.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Alegreya';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Alegreya Bold'), local('Alegreya-Bold'), url(fonts/alegreya-bold.woff) format('woff');
+}
+@font-face {
+  font-family: 'Alegreya';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Alegreya Italic'), local('Alegreya-Italic'), url(fonts/alegreya-italic.woff) format('woff');
+}
+@font-face {
+  font-family: 'Alegreya SC';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Alegreya SC'), local('AlegreyaSC-Regular'), url(fonts/alegreyasc-regular.woff) format('woff');
+}
+@font-face {
+  font-family: 'Alegreya SC';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Alegreya SC Bold'), local('AlegreyaSC-Bold'), url(fonts/alegreyasc-bold.woff) format('woff');
+}
+@font-face {
+  font-family: 'Alegreya';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Alegreya'), local('Alegreya-Regular'), url(fonts/alegreya-regular.woff) format('woff');
+}
+@font-face {
+  font-family: 'Alegreya';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Alegreya Bold Italic'), local('Alegreya-BoldItalic'), url(alegreya-bolditalic.woff) format('woff');
 }
 
 ::-webkit-scrollbar {
@@ -51,12 +88,14 @@ body {
 #chat-edit{
   border:1px solid #222 ;
 }
-#editor{
+#editor, #preview{
   font-size:1.2em;
   line-height:1.4em;
   background-size:80% auto;
+  margin-top: 10px;
   padding-top: 20px;
   padding-left: 30px;
+  font-family: "Alegreya";
 }
 #editor:focus{
   border:none;
