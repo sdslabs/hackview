@@ -34,7 +34,7 @@ var App=(function(){
       //the mode changes to mobile
       mode='mobile';
     }
-    Doc.init();
+    Doc.init(); //should be available on most browsers (websockets)
     UI.refresh();
   }
   /** Configuration for our API usage */

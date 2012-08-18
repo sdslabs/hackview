@@ -1,6 +1,11 @@
 {
   "name":"HackView",
-  "version":"1.0",
+  "version":"1.0.0",
+  "dependencies":{
+    "express": "2.5.x",
+    "webrtc.io":"0.0.x",
+    "share":"0.5.x"
+  },
   "engines":{
     "node":"0.6.20"
   }
