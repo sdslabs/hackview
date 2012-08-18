@@ -47,3 +47,16 @@ div.container{
 .flip {
 -webkit-transform: rotateY(180deg);
 }
+
+.bottomVideo {
+height: 150px;
+text-align: center;
+}
+
+.topVideos {
+height: 350px;
+}
+
+#you {
+height: 150px;
+}
