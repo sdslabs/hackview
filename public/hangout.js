@@ -7,11 +7,6 @@ var Hangout=(function(){
   //here
   //Initialize hangouts, returns false if we are not in a chatroom
   function __init() {
-    room = window.location.hash.slice(1);
-    //if you are not in a chatroom, return
-    if(room.length===0)
-      return false;
-
     if(PeerConnection){
       rtc.createStream({"video": true, "audio": true}, function(stream) {
         //debugger;
@@ -55,7 +50,9 @@ var Hangout=(function(){
       $(vids[i]).css('left',i*width+10);
     }
     $('#videos').css('min-height',height);
-    $('#editor').css('min-height',window.height-height-23);
+    var height=window.innerHeight-height-60;
+    console.log(height);
+    $('#editor').attr('rows',height/parseInt($('#editor').css('line-height'),10));
   }
   function sendChat(message){
     rtc._socket.send(JSON.stringify({
