@@ -55,7 +55,8 @@ body {
     line-height:1.6em;
     background-size:80% auto;
     padding-top: 20px;
-    padding-left: 30px;
+    margin-left: 30px;
+    width: 95%;
 }
 #editor:focus{
     border:none;
