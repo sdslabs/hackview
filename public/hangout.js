@@ -54,7 +54,8 @@ var Hangout=(function(){
     console.log(height);
     $('#editor').attr('rows',height/parseInt($('#editor').css('line-height'),10));
   }
-  function sendChat(message){
+  function sendChat (message){
+    UI.addChatMessage(message);
     rtc._socket.send(JSON.stringify({
       eventName:"chat_msg",
       data:{
