@@ -47,6 +47,12 @@ and (max-device-width : 480px) {
 	.row-fluid .span3 {
 		width: 100%;
 	}
+	#submit {
+		margin-bottom: 20px;
+	}
+	.theme-default .nivoSlider {
+		width: 100%;
+	}
 }
 
 /* Smartphones (landscape) ----------- */
