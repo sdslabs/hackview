@@ -20,52 +20,7 @@
       <script src="/share/textarea.js"></script>
     <!-- Le styles -->
     <link type="text/css" href="bootstrap.css" rel="stylesheet"></link>
-    <style type="text/css">
-      body {
-        padding-top: 10px;
-        padding-bottom: 40px;
-      }
-      .sidebar-nav {
-        padding: 9px 0;
-      }
-      .text-input{
-        width:100%;
-        border:none;
-        background:transparent;
-        height:100%;
-      }
-      #chat-edit{
-        border:1px solid #222 ;
-      }
-      #editor{
-        -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-        -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-        box-sizing: border-box;         /* Opera/IE 8+ */
-        width:100%;
-        height:100%; 
-        font-size:1.3em;
-        line-height:1.6em;
-        background-size:80% auto;
-      }
-      #editor:focus{
-        border:none;
-        outline: none;
-        -webkit-box-shadow:none;
-      }
-      #videos video {
-        display: inline;
-        position: absolute;
-      }
-      #videos{
-        position: relative;
-        margin: 0 auto;
-        padding-bottom:20px;
-      }
-      .editor-container {
-        background: url(fibers.png);
-      }
-    </style>
-
+    <link type="text/css" href="custom.css" rel="stylesheet"></link>
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -84,7 +39,8 @@
     <div class="container-fluid">
       <div class="row-fluid">
         <div class="span3 chatbox">
-          <textarea id="chat-edit" class="text-input"></textarea>
+          <h1 id="overview">HackView</h1>
+          <input id="chat-edit" class="text-input"></input>
         </div><!--/span-->
         <div class="span9">
           <div class="row-fluid">
@@ -102,11 +58,7 @@
       </div><!--/row-->
 
    
-    </div><!--/.fluid-container-->
-
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+    </div>
     <script>
       App.init();
     </script>
