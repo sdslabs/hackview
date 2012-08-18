@@ -20,16 +20,17 @@ var Doc=(function(){
       $('#editor').show();
       this.innerText = "Preview"
     }
-  }
 
   var _flickr = function(query,callback){
-    var url = 'http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20flickr.photos.search%20where%20text%3D%22' + escape(query) + '%22%20and%20api_key%3D%2241386f9cfb34101b940afa34f6bfba2f%22%20limit%2010&diagnostics=true&callback=?';
+    var url = 'http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20flickr.photos.search%20where%20text%3D%22' + escape(query) + '%22%20and%20api_key%3D%2241386f9cfb34101b940afa34f6bfba2f%22%20limit%2010&format=json&diagnostics=true&callback=?';
+    console.log(url);
     $.getJSON(url,callback);
   };
 
   var _boss = function(query,callback){
     //@Todo, set up additional filters, use the power of BOSS
-    var url = 'http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20boss.search%20where%20q%3D%22' + query +'%22%20and%20ck%3D%22dj0yJmk9YWF3ODdGNWZPYjg2JmQ9WVdrOWVsWlZNRk5KTldFbWNHbzlNVEEyTURFNU1qWXkmcz1jb25zdW1lcnNlY3JldCZ4PTUz%22%20and%20secret%3D%22a3d93853ba3bad8a99a175e8ffa90a702cd08cfa%22&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys';
+    var url = 'http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20boss.search%20where%20q%3D%22' + query +'%22%20and%20ck%3D%22dj0yJmk9YWF3ODdGNWZPYjg2JmQ9WVdrOWVsWlZNRk5KTldFbWNHbzlNVEEyTURFNU1qWXkmcz1jb25zdW1lcnNlY3JldCZ4PTUz%22%20and%20secret%3D%22a3d93853ba3bad8a99a175e8ffa90a702cd08cfa%22&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys';
+    console.log(url);
     $.getJSON(url,callback);
   }
   function _init(){
@@ -47,3 +48,21 @@ var Doc=(function(){
     init:_init
   };
 })();
+  }
+
+  /*
+  Doc.flickr ('human', function(data) {
+    for (i in data.query.results.photo) {
+      obj = data.query.results.photo[i];             
+      html_a = '<a href="http://www.flickr.com/photos/'+obj.owner+'/'+obj.id+'"><img src="http://farm'+obj.farm+'.static.flickr.com/'+obj.server+'/'+obj.id+'_'+obj.secret+'.jpg" alt="'+obj.title+'" /></a>';
+      console.log(html_a);
+    }
+  });
+
+  Doc.boss('indian institute of technology roorkee', function(data) {
+    for (i in data.query.results.bossresponse.web.results.result) {
+      obj = data.query.results.bossresponse.web.results.result[i];
+      console.log(obj.url);
+    }
+  });
+  */

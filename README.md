@@ -11,7 +11,7 @@ which works faster than any other video chat provider. It is ideal for people ch
 ##Technologies Used
 
 - [WebRTC](http://www.webrtc.org)
-- [Collobarative Editing](http://en.wikipedia.org/wiki/Collaborative_editing)
+- [Collaborative Editing](http://en.wikipedia.org/wiki/Collaborative_editing)
 - [Websockets](http://websocket.org) for fast server-client communication
 - [node.js](http://nodejs.org) for powering the backend
 - [expressJS](expressjs.com/) for fast, easy webserver in node
