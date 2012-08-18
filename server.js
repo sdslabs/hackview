@@ -6,6 +6,8 @@ app.listen(8000);
 console.log('App running on port 8000');
 var webRTC = require('webrtc.io').listen(app);
 
+require('./rtc.js')(webRTC);
+
 app.get('/', function(req, res) {
   res.sendfile(__dirname + '/public/index.html');
 });

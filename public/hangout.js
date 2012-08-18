@@ -1,13 +1,13 @@
 //Hangout.js
 var Hangout=(function(){
   //private variable to hold videos
-  var videos = [];
+  var videos = [],room='';
   //This will include all the rtc stuff
   //once this is called, it will attach to all required events.
   //here
   //Initialize hangouts, returns false if we are not in a chatroom
   function __init() {
-    var room = window.location.hash.slice(1);
+    room = window.location.hash.slice(1);
     //if you are not in a chatroom, return
     if(room.length===0)
       return false;
@@ -41,6 +41,9 @@ var Hangout=(function(){
         console.log('remove ' + data);
         removeVideo(data);
     });
+    rtc.on('receive_chat_msg', function(data){
+      UI.addChatMessage(data.msg);
+    })
   };
   function removeVideo(socketId) {
     var video = $('remote' + socketId)[0];
@@ -66,12 +69,23 @@ var Hangout=(function(){
   }
 
   function subdivideVideos() {
-    var perRow = getNumPerRow();
-    var numInRow = 0;
-    for (var i = 0, len = videos.length; i < len; i++) {
-      var video = videos[i];
-      setWH(video, i);
-      numInRow = (numInRow + 1) % perRow;
+    if(UI.getMode()==='theater'){
+      //let us only show the first video for now
+      for (var i = 0, len = videos.length; i < len; i++) {
+        var video = videos[i];
+        $(video).hide();
+      }
+     }
+    else{
+      $('#videos video').show();
+      //show all the videos
+      var perRow = getNumPerRow();
+      var numInRow = 0;
+      for (var i = 0, len = videos.length; i < len; i++) {
+        var video = videos[i];
+        setWH(video, i);
+        numInRow = (numInRow + 1) % perRow;
+      }
     }
   }
 
@@ -96,10 +110,22 @@ var Hangout=(function(){
     return clone;
   }
 
+  function sendChat(message){
+    rtc._socket.send(JSON.stringify({
+      eventName:"chat_msg",
+      data:{
+        msg:message,
+        room:room
+      }
+    }),function(err){
+      console.log(err);
+    });
+  };
   return {
     enterRoom:null,
     leaveRoom:null,
     changeView:null,
-    init:__init
+    init:__init,
+    chat:sendChat
   };
 })();

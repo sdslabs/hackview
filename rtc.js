@@ -6,6 +6,7 @@ module.exports=(function(webRTC){
 
   webRTC.rtc.on('send answer', function(rtc) {
     //answer sent
+    console.log("Answer sent");
   });
 
   webRTC.rtc.on('disconnect', function(rtc) {
@@ -13,8 +14,10 @@ module.exports=(function(webRTC){
   });
 
   webRTC.rtc.on('chat_msg', function(data, socket) {
+    console.log("HERE");
+    console.log(data);
     var roomList = webRTC.rtc.rooms[data.room] || [];
-
+    console.log(roomList);
     for (var i = 0; i < roomList.length; i++) {
       var socketId = roomList[i];
 
@@ -25,8 +28,7 @@ module.exports=(function(webRTC){
           soc.send(JSON.stringify({
             "eventName": "receive_chat_msg",
             "data": {
-              "messages": data.messages,
-              "color": data.color
+              "msg": data.msg
             }
           }), function(error) {
             if (error) {

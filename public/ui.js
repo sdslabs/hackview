@@ -3,6 +3,14 @@ var UI=(function(){
   return {
   	//this changes view to particular contact
     changeView:null,
-    mode:null,//data member = mobile|default|hangout
+    //returns whether we are viewing this in single Theater Mode
+    getMode:  function(){
+	  return $('#theatre').is(':checked');
+	},
+	addChatMessage:function(msg){
+	  //@todo Add this to the window as a div
+	  //when we have the interface
+	  console.log(msg);
+	}
   };
 })();
