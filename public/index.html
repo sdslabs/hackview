@@ -49,10 +49,12 @@
             $('#switchMode').click(function(e) {
               if ($('.editor-container').is(":hidden")) {
                 $('.editor-container').show();
+                $('#preview-button').show();
                 $('#chat-form').hide();
               }
               else {
                 $('.editor-container').hide();
+                $('#preview-button').hide();
                 $('#chat-form').show(); 
               }
             });
