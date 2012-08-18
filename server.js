@@ -1,5 +1,11 @@
+require('coffee-script');
 var express=require('express'),
-    app = express.createServer();
+    app = express.createServer(),
+    sharejs = require('share');
+
+var options = {db: {type: 'none'}};
+
+sharejs.server.attach(app, options);
 
 app.use(express.static(__dirname + '/public'));
 app.listen(8000);

@@ -12,8 +12,13 @@
     <script src="ui.js"></script>
     <script src="mobile.js"></script>
     <script src="app.js"></script>
+    <!-- sharejs stuff -->
+    <script src="/channel/bcsocket.js"></script>
+    <script src="/share/share.js"></script>
+    <script src="/share/textarea.js"></script>
   </head>
   <body>
+
     <div class="container">
 
       <!--<header>
@@ -32,11 +37,12 @@
         </div>
 
         <div id="videos">
+          <video id="you" class="flip" autoplay></video>
           <div class="topPane">
-
+            
           </div>
           <div class="bottomPane">
-            <video id="you" class="flip" autoplay></video>
+            <textarea id="editor" disabled>Loading...</textarea>
           </div>
         </div>
          <!--<div class="clear" />-->
@@ -54,6 +60,17 @@
     <script>
       //Initialize the application
       App.init();
+      //ShareJS stuff
+      var elem = document.getElementById('editor');
+      sharejs.open('hello', 'text', function(error, doc) {
+        if (error) {
+          console.log(error);
+        } else {
+          elem.disabled = false;
+          console.log("read");
+          doc.attach_textarea(elem);
+        }
+      });
     </script>
   </body>
 </html>
