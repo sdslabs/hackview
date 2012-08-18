@@ -83,7 +83,7 @@ body {
 
 .md-icon {
     height: 15px;
-    margin: 20px 30px;
+    margin: 11px 0px 7px 28px;
     -webkit-transition: all 0.1s ease-in-out;
     -moz-transition: all 0.1s ease-in-out;
     -o-transition: all 0.1s ease-in-out;
@@ -102,8 +102,7 @@ body {
 }
 
 #icon-dock {
-    margin: 0 0 0 50px;
-    font-family: "Lobster";
+    margin: 0 0 0 0px;
 }
 
 #preview-button{
@@ -114,7 +113,7 @@ body {
 /** hide the preview by default */
 #preview{
   display:none;
-  padding:5px 0px 0px 20px;
+  padding:5px 0px 20px 20px;
   overflow:scroll;
   height:300px;
 }

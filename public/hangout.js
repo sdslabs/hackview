@@ -47,7 +47,7 @@ var Hangout=(function(){
     for(i=0;i<count;i++){
       vids[i].width=width;
       vids[i].height=height;
-      $(vids[i]).css('left',i*width+10);
+      $(vids[i]).css('left',i*width);
     }
     $('#videos').css('min-height',height);
     var height=window.innerHeight-height-60;
