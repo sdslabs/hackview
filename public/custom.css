@@ -49,7 +49,11 @@ body {
   height:100%;
 }
 #chat-edit{
+<<<<<<< HEAD
   border:1px solid #222 ;
+=======
+    border:1px solid #bbb ;
+>>>>>>> Improved on chat display
 }
 #editor{
   font-size:1.3em;
@@ -117,4 +121,19 @@ body {
   padding:5px 0px 0px 20px;
   overflow:scroll;
   height:300px;
+}
+
+#chat-form {
+    position: fixed;
+    bottom: 0px;
+    left: 15px;
+    border-top: 1px solid #e4e4e4;
+    padding-top: 10px;
+}
+div.chat-message{
+    padding: 5px;
+    border-radius: 3px;
+    background: #e4e4e4;
+    color: #222;
+    margin: 2px;
 }

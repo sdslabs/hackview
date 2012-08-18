@@ -1,7 +1,7 @@
 var UI=(function(){
 
 	$(document).ready(function hooks(){
-		console.log('Hola')
+
 		$('#chat-form').submit(function(e){
 			e.preventDefault();
 			var val =  $('#chat-edit').val();
@@ -21,7 +21,7 @@ var UI=(function(){
 	  //@todo Add this to the window as a div
 	  //when we have the interface
 	  var chatMessage = $('<div/>').attr('class','chat-message').text( msg )
-	  $('.chatbox').prepend	( chatMessage );
+	  $('#overview').after( chatMessage );
 
 	}
   };
