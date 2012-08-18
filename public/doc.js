@@ -44,19 +44,23 @@ var Doc=(function(){
                             }
                             break;
         case 'pic-icon':    text = data.text; 
+                            $('#loader').css('visibility', 'visible');
                             Doc.flickr (text, function(data) {
                               obj = data.query.results.photo[0];             
                               url = 'http://farm'+obj.farm+'.static.flickr.com/'+obj.server+'/'+obj.id+'_'+obj.secret+'.jpg';
                               text = '!['+text+'](' + url + ') ';
                               $('#editor').replaceSelectedText(text);
+                              $('#loader').css('visibility', 'hidden');
                             });
                             break;                    
-        case 'boss-icon':   text = data.text;                                    
+        case 'boss-icon':   text = data.text;                 
+                            $('#loader').css('visibility', 'visible');                   
                             Doc.boss(text, function(data) {
                               obj = data.query.results.bossresponse.web.results.result[0];
                               url = obj.url;
                               text = '['+text+'](' + url + ') ';
                               $('#editor').replaceSelectedText(text);
+                              $('#loader').css('visibility', 'hidden');
                             });
                             break;
       }

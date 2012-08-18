@@ -95,12 +95,14 @@ body {
   margin-top: 10px;
   padding-top: 20px;
   padding-left: 30px;
-  font-family: "Alegreya";
 }
 #editor:focus{
   border:none;
   outline: none;
   -webkit-box-shadow:none;
+}
+#preview {
+  font-family: "Alegreya";
 }
 #videos video {
   display: inline;
@@ -171,7 +173,10 @@ div.chat-message{
     color: #222;
     margin: 2px;
 }
-
 #switchMode {
     display: none;
+}
+#loader {
+  margin-left: 40px;
+  visibility: hidden;
 }
