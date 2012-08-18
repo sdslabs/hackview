@@ -38,7 +38,6 @@ body {
   overflow:hidden;
   padding-top: 10px;
   padding-bottom: 40px;
-  font-family: lobster;
 }
 .sidebar-nav {
   padding: 9px 0;
@@ -50,11 +49,7 @@ body {
   height:100%;
 }
 #chat-edit{
-<<<<<<< HEAD
   border:1px solid #222 ;
-=======
-    border:1px solid #bbb ;
->>>>>>> Improved on chat display
 }
 #editor{
   font-size:1.2em;
