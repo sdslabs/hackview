@@ -2,7 +2,7 @@
   font-family: 'Lobster';
   font-style: normal;
   font-weight: 400;
-  src: local('Lobster'), url('../lobster.woff') format('woff');
+  src: local('Lobster'), url('../fonts/lobster.woff') format('woff');
 }
 
 /*=================================*/
