@@ -7,13 +7,11 @@
     <meta name="description" content="HackView is a multi-user webrtc chat with document editing features">
     <meta name="author" content="Team SDSLabs">
     <link rel="stylesheet" href="nivo-slider/themes/default/default.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="nivo-slider/themes/light/light.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="nivo-slider/themes/dark/dark.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="nivo-slider/themes/bar/bar.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="nivo-slider/nivo-slider.css" type="text/css" media="screen" />
     <link type="text/css" href="bootstrap.css" rel="stylesheet"></link>
     <link rel="stylesheet" href="nivo-slider/style.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="android.css" type="text/css" />
+    <script type="text/javascript" src="nivo-slider/scripts/jquery-1.7.1.min.js"></script>
 </head>
 <body>
     <div id="wrapper">
@@ -26,11 +24,25 @@
         </div>
         <form action="./room" method="GET">
             <label for="nickname">Enter a Nickname</label>
-            <input type="text" class="input-xlarge" id="nickname" name="nickname"> <br />
+            <input type="text" class="input-xlarge" id="nickname" name="nickname" onChange=rooming()><br />
+            <span class="help-inline">[nickname]/@sdslabs creates a chat room named sdslabs</span> <br />
+            </div>
+            <br />
             <input class="btn btn-warning" type="submit" name="submit" id="submit" value="Create Chat Room!" />
         </form>
+        <script>
+            function rooming() {
+                var nick = $('#nickname').val();
+                var room = nick.split('@')[1];
+                if (room) {
+                    $('#submit').attr("value","Go to "+room);
+                }
+                else {
+                    $('#submit').attr("value","Create Chat Room");   
+                }
+            }
+        </script>
     </div>
-    <script type="text/javascript" src="nivo-slider/scripts/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="nivo-slider/jquery.nivo.slider.js"></script>
     <script type="text/javascript">
     $(window).load(function() {
