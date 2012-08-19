@@ -72,6 +72,7 @@
 }
 
 #overlay {
+  display: none;
   visibility: visible;
   position: absolute;
   left: 0px;

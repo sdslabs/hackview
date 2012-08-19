@@ -34,6 +34,21 @@ var UI=(function(){
   // });
 
 	$(document).ready(function hooks(){
+
+    if (window.location.search=='?asknick=yes') {
+      console.log('running');
+      $('.container-fluid').fadeOut();
+      $('#overlay').fadeIn();
+      $('#nick-popup').submit(function(e) {
+        e.preventDefault();
+        var nick = $('#nickname').val();
+        if (nick!='') {
+          $.get('/setnick',{nick:nick});
+          $('#overlay').fadeOut();
+          $('.container-fluid').fadeIn();
+        }
+      });
+    }
 		//Start Instant chat read and write code
 		$('#chat-form').submit(function(e){
       e.preventDefault();
