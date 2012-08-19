@@ -241,3 +241,9 @@ ul.video-list li{
   line-height: 150px;
   text-align:center;
 }
+.alert-msg {
+  display: none;
+  margin-top: 100px;
+  color: #777;
+  font-size: 0.9em;
+}
