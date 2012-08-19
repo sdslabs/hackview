@@ -59,6 +59,9 @@ and (max-device-width : 480px) {
 	#videos {
 		display: none;
 	}
+	.black-back {
+		display: none;
+	}
 }
 
 /* Smartphones (landscape) ----------- */

@@ -66,6 +66,16 @@
       <div class="row-fluid">
         <div class="span3 chatbox">
           <h1 id="overview">HackView</h1>
+          <div id="share">
+            Share this url with your friends:
+            <input readonly class="url-field" spellcheck="false" id="shareURL" name="shareURL" />
+            <script>
+              $('#shareURL').attr('value',window.location.href);
+              $('#shareURL').click(function() {
+                $('#shareURL').select();
+              })
+            </script>
+          </div>
           <button class="btn btn-warning" id="switchMode">Chat/Doc</button>
           <script>            
             $('#switchMode').click(function(e) {
