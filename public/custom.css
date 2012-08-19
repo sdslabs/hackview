@@ -222,6 +222,7 @@ div.right-black{
   margin-bottom: -99999px;
   padding-bottom: 99999px;
   position: relative;
+  min-height:700px;
 }
 .list-wrapper{
   position: relative;
@@ -242,7 +243,14 @@ ul.video-list li{
   line-height: 150px;
   text-align:center;
 }
-.alert-msg {
+a.conf-back{
+  color: #FFF;
+  position: absolute;
+  top:5px;
+  right:5px;
+  text-decoration: none;
+  cursor: pointer;
+}.alert-msg {
   display: none;
   margin-top: 100px;
   color: #777;

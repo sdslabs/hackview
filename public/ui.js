@@ -58,8 +58,8 @@ var UI=(function(){
        Doc.toolbar('boss-icon');
     });
 
-		$('video').on('click', function(){
-
+		$('#videos').delegate('video','click', function(){
+			console.log($(this).index())
 			var youVideo = $(this).clone();
 			var big = youVideo.css({
 				'width' : 600,
@@ -84,6 +84,10 @@ var UI=(function(){
 			}) ); */
 
 		});
+
+		$('a.conf-back').click(function(){
+			$('div.black-back').hide();
+		})
 		/*
 		var video = $('video'),
 			$overlay = $('#videos .video-overlay');
