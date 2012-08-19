@@ -18,13 +18,14 @@ if(process.env.redis_port){
 
 sharejs.server.attach(app, sharejsOptions);//attach to express
 
-
-
 if (env !== 'production')
-	app.use(express.logger('dev'));
+  app.use(express.logger('dev'));
 
 app.use(express.static(__dirname + '/public'));
 app.use(express.favicon(__dirname+"/public/favicon.ico"));
+app.use(express.cookieParser());
+app.use(express.session({secret:"SuperSecretSessionKey"}));
+
 //heroku support
 var port = process.env.PORT || 8000;
 app.listen(port);
@@ -38,3 +39,25 @@ require('./rtc.js')(webRTC);
 app.get('/', function(req, res) {
   res.sendfile(__dirname + '/public/index.html');
 });
+
+/** Create a new random room */
+app.get('/join',function(req,res){
+  var roomName=req.query.nickname.split('@')[1];
+  if(!roomName)
+    roomName=getRandomRoom();
+  console.log(req.query.nickname.split('@'));
+  var nickName = req.query.nickname.split('@')[0];
+  req.session.nick = nickName;
+  res.redirect('/room/'+roomName);
+});
+
+var getRandomRoom = function(){
+  var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+  var string_length = 8;
+  var randomstring = '';
+  for (var i=0; i<string_length; i++) {
+    var rnum = Math.floor(Math.random() * chars.length);
+    randomstring += chars.substring(rnum,rnum+1);
+  }
+  return randomstring;
+}
