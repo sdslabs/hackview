@@ -22,6 +22,10 @@ var App=(function(){
       Doc.init(); //should be available on most browsers (websockets)
       UI.refresh();
     });
+
+    var path = window.location.pathname.split('/');
+    room=path[2];
+
   }
 
   /** Configuration for our API usage */
