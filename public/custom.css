@@ -220,19 +220,24 @@ div.right-black{
   float: left;
   margin-bottom: -99999px;
   padding-bottom: 99999px;
+  position: relative;
 }
 .list-wrapper{
   position: relative;
   left: -50%;
 }
 ul.video-list{
+  position:relative;
   list-style:none;
-  left: 50%;
-  margin: 0 auto;
+  left: 75%;
+  margin-top: 30px;
 }
 ul.video-list li{
   display:block;
   height : 150px;
   width : 200px;
   border: 1px solid #B1B1B1;
+  margin-bottom: 10px;
+  line-height: 150px;
+  text-align:center;
 }

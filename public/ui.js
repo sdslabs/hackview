@@ -60,13 +60,14 @@ var UI=(function(){
 
 		$('video').on('click', function(){
 
-			var youVideo = $(this).clone().css({
+			var youVideo = $(this).clone();
+			var big = youVideo.css({
 				'width' : 600,
 				'height' : 800,
 				'top' : 100,
 				'marginTop' : -100,
 				'left' : 100,
-				'marginRight' : -100
+				'marginLeft' : 100
 			})
 			/* Todo Work on the Responsive Part */
 			$('div.black-back').css({
@@ -74,7 +75,13 @@ var UI=(function(){
 				'height': $(window).innerHeight()
 			}).show();
 
-			$('div.right-black').append( youVideo )
+			$('div.right-black').append( big );
+			/*
+			$('.video-list li:eq(1)').html( youVideo.css({
+				'width': 200,
+				'height': 150,
+				'margin': 0
+			}) ); */
 
 		});
 		/*
