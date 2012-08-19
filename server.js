@@ -28,7 +28,7 @@ app.use(express.static(__dirname + '/public'));
 //heroku support
 var port = process.env.PORT || 8000;
 app.listen(port);
-console.log('App running on port'+port);
+console.log('App running on port : '+port);
 
 //webRTC Stuff
 var webRTC = require('webrtc.io').listen(app);
