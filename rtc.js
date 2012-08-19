@@ -1,5 +1,4 @@
 module.exports=(function(webRTC){
-  var sanitizer = require(‘sanitizer’);
   webRTC.rtc.on('connect', function(rtc) {
     console.log("someone connected");
     //Client connected
@@ -29,7 +28,7 @@ module.exports=(function(webRTC){
           soc.send(JSON.stringify({
             "eventName": "receive_chat_msg",
             "data": {
-              "msg": sanitizer(data.msg)
+              "msg": data.msg
             }
           }), function(error) {
             if (error) {
