@@ -59,7 +59,8 @@ var UI=(function(){
     });
 
 		$('#videos').delegate('video','click', function(){
-			console.log($(this).index())
+			
+			//this refers to the current video clicked
 			var youVideo = $(this).clone();
 			var big = youVideo.css({
 				'width' : 600,
@@ -76,12 +77,23 @@ var UI=(function(){
 			}).show();
 
 			$('div.right-black').append( big );
-			/*
-			$('.video-list li:eq(1)').html( youVideo.css({
-				'width': 200,
-				'height': 150,
-				'margin': 0
-			}) ); */
+				
+			$('.video-list').html('');
+			$('#videos video').each(function(){
+				var videoClone = $(this).clone();
+				var html =  videoClone.css({
+							'width': 200,
+							'height': 150,
+							'margin': 0
+							}).wrap('<li/>');
+
+				$('.video-list').append(html);
+			})
+
+
+
+			//$('.video-list li:eq(1)').html( big.clone().css({
+			//	 ); 
 
 		});
 
