@@ -10,10 +10,6 @@ var UI=(function(){
 		Hangout.chat(val);
 		//UI.addChatMessage(val);
 	  });
-    $('.md-icon').on('click', function() {
-      var option = $(this).attr('id');
-      Doc.toolbar(option);
-    });
   });
 
   //Function to refresh the UI depending on various things
@@ -60,6 +56,16 @@ var UI=(function(){
       		var option = $(this).attr('id');
       		Doc.toolbar(option);
     	});
+
+    $('#editor').bind('keyup', 'ctrl+b', function() {
+       Doc.toolbar('bold-icon');
+    });
+    $('#editor').bind('keyup', 'ctrl+i', function() {
+       Doc.toolbar('italic-icon');
+    });
+    $('#editor').bind('keyup', 'ctrl+q', function() {
+       Doc.toolbar('boss-icon');
+    });
 
 		$('video').on('click', function(){
 
