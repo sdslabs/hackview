@@ -13,6 +13,7 @@ var Hangout=(function(){
         UI.refresh();
       });
     } else {
+      rtc.connect("ws://"+window.location.hostname+":"+window.location.port||80, App.getRoom());
       return false;
     }
 
