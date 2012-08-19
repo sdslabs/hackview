@@ -2,15 +2,6 @@
  * This is the UI module and handles UI changes
  */
 var UI=(function(){
-  $(document).ready(function hooks(){
-	  $('#chat-form').submit(function(e){
-		e.preventDefault();
-		var val =  $('#chat-edit').val();
-		$('#chat-edit').val('');
-		Hangout.chat(val);
-		//UI.addChatMessage(val);
-	  });
-  });
 
   //Function to refresh the UI depending on various things
   function _refresh(){
@@ -45,12 +36,12 @@ var UI=(function(){
 	$(document).ready(function hooks(){
 		//Start Instant chat read and write code
 		$('#chat-form').submit(function(e){
-			e.preventDefault();
-			var val =  $('#chat-edit').val();
-			$('#chat-edit').val('');
-			Hangout.chat(val);	
-
-		});
+      e.preventDefault();
+      var val =  $('#chat-edit').val();
+      $('#chat-edit').val('');
+      if (val!='')
+        Hangout.chat(val);
+    });
 
 		$('.md-icon').on('click', function() {
     		var option = $(this).attr('id');
