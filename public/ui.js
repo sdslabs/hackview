@@ -36,6 +36,8 @@ var UI=(function(){
 
 	$(document).ready(function hooks(){
 
+	var a;
+
     if (window.location.search=='?asknick=yes') {
       $('.container-fluid').fadeOut();
       $('#overlay').fadeIn();
@@ -44,22 +46,31 @@ var UI=(function(){
         var nick = $('#nickname').val();
         if (nick!='') {
           $.get('/setnick',{nick:nick});
-          Hangout.init();
+          a = Hangout.init();
           $('#overlay').fadeOut();
           $('.container-fluid').fadeIn();
         }
       });
     }
-    else
-        Hangout.init();
+    else 
+      a = Hangout.init();
+      if (a===false) {
+        $('#videos').remove();
+        window.onresize=null;
+        UI.refresh();
+
+      }
+
+
 		//Start Instant chat read and write code
 		$('#chat-form').submit(function(e){
-     	 e.preventDefault();
-      var val =  $('#chat-edit').val();
-      $('#chat-edit').val('');
-      if (val!='')
-        Hangout.chat(val);
-    });
+     	  e.preventDefault();
+      	  var val =  $('#chat-edit').val();
+      	  $('#chat-edit').val('');
+      	  if (val!='')
+        	Hangout.chat(val);
+      	  return false;
+    	});
 
 		$('.md-icon').on('click', function() {
     		var option = $(this).attr('id');
