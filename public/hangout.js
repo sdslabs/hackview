@@ -34,12 +34,12 @@ var Hangout=(function(){
 
   //Sends chat using rtc sockets
   function sendChat (message){
-    UI.addChatMessage(message);
     rtc._socket.send(JSON.stringify({
       eventName:"chat_msg",
       data:{
         msg:message,
-        room:App.getRoom()
+        room:App.getRoom(),
+        nick:App.getNick()
       }
     }),function(err){
       console.log(err);

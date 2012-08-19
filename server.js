@@ -45,7 +45,6 @@ app.get('/join',function(req,res){
   var roomName=req.query.nickname.split('@')[1];
   if(!roomName)
     roomName=getRandomRoom();
-  console.log(req.query.nickname.split('@'));
   var nickName = req.query.nickname.split('@')[0];
   req.session.nick = nickName;
   res.redirect('/room/'+roomName);

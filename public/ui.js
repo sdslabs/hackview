@@ -190,10 +190,10 @@ var UI=(function(){
 	  addChatMessage:function(msg){
   	  //@todo Add this to the window as a div
   	  //when we have the interface
-  	  var chatMessage = $('<div/>').attr('class','chat-message').text( msg )
+  	  var chatMessage = $('<div/>').attr('class','chat-message').text( msg );
   	  $('#overview').after( chatMessage );
-
 	  },
-    refresh: _refresh
+    refresh: _refresh,
+    init: function(cb){cb.call();}
   };
 })();
