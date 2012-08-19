@@ -97,6 +97,22 @@ var UI=(function(){
 
 		});
 
+		$('.video-list').delegate('video','click',function(){
+			var vid = $(this).clone().css({
+				'width' : 600,
+				'height' : 800,
+				'top' : 100,
+				'marginTop' : -100,
+				'left' : 100,
+				'marginLeft' : 100
+			});
+
+			$('.right-black video').remove()
+			$('.right-black').append( vid );
+			console.log( vid )
+
+		})
+
 		$('a.conf-back').click(function(){
 			$('div.black-back').hide();
 		})

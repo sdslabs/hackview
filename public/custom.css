@@ -243,6 +243,21 @@ ul.video-list li{
   line-height: 150px;
   text-align:center;
 }
+.video-list video {
+  display: inline;
+  position: absolute;
+  transition: all 0.5s;
+ -moz-transition: all 0.5s; /* Firefox 4 */
+ -webkit-transition: all 0.5s; /* Safari and Chrome */
+  -o-transition: all 0.5s; /* Opera */
+}
+.video-list video:hover {
+  -moz-box-shadow: 0 0 2px 2px #444;
+  -webkit-box-shadow: 0 0 2px 2px #444;
+  box-shadow: 0 0 2px 2px #444;
+  cursor: pointer;
+  opacity:0.8;
+}
 a.conf-back{
   color: #FFF;
   position: absolute;
