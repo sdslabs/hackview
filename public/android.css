@@ -56,6 +56,9 @@ and (max-device-width : 480px) {
 	#androidbug {
 		display: none;
 	}
+	#videos {
+		display: none;
+	}
 }
 
 /* Smartphones (landscape) ----------- */
