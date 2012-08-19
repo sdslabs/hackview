@@ -35,7 +35,6 @@ console.log('App running on port : '+port);
 var webRTC = require('webrtc.io').listen(app);
 require('./rtc.js')(webRTC);
 
-
 app.get('/', function(req, res) {
   res.sendfile(__dirname + '/public/room.html');
 });
@@ -73,6 +72,7 @@ app.get('/room/:roomName',function(req,res){
 });
 
 app.get('/setnick',function(req,res){
+  res.cookie('nick',req.query.nick);
   req.session.nick = req.query.nick;
   res.send('');
 });
