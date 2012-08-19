@@ -109,6 +109,7 @@ body {
 }
 #chat-edit{
     border:1px solid #bbb ;
+    padding-left:2px;
 }
 #editor, #preview{
   font-size:1.2em;
@@ -282,11 +283,13 @@ ul.video-list li{
 a.conf-back{
   color: #FFF;
   position: absolute;
-  top:5px;
-  right:5px;
+  font-size: 20px;
+  top:15px;
+  right:15px;
   text-decoration: none;
   cursor: pointer;
-}.alert-msg {
+}
+.alert-msg {
   display: none;
   margin-top: 100px;
   color: #777;
@@ -295,10 +298,18 @@ a.conf-back{
 #androidbug {
   display: none;
 }
+#shareURL{
+  border:1px solid #333;
+  padding:3px;
+}
 #shareURL:focus {
-  border-color: rgba(236, 230, 82, 0.8);
+  border: 1px solid #333;
   outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(209, 204, 81, 0.6);
-  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(214, 214, 98, 0.6);
+ 
+}
+#share{
+  margin-bottom: 10px;
+}
+div.chatbox{
+  overflow:auto;
 }
