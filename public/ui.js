@@ -191,7 +191,7 @@ var UI=(function(){
   	  //@todo Add this to the window as a div
   	  //when we have the interface
   	  var chatMessage = $('<div/>').attr('class','chat-message').text( msg );
-  	  $('#overview').after( chatMessage );
+  	  $('#share').after( chatMessage );
 	  },
     refresh: _refresh,
     init: function(cb){cb.call();}
