@@ -29,7 +29,7 @@ module.exports=(function(webRTC){
           soc.send(JSON.stringify({
             "eventName": "receive_chat_msg",
             "data": {
-              "msg": sanitize(data.msg)
+              "msg": sanitize(data.msg).xss()
             }
           }), function(error) {
             if (error) {

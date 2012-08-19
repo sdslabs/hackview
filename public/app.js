@@ -9,6 +9,8 @@ var App=(function(){
     //var ret = Hangout.init();//call the hangout Init function
     //hangout is the full powered mode
     //default is normal browser w/o video chat
+    var path = window.location.pathname.split('/');
+    room=path[2];
     Doc.init (function() {
       var ret = Hangout.init();
         if(ret===false){
@@ -23,8 +25,7 @@ var App=(function(){
       UI.refresh();
     });
 
-    var path = window.location.pathname.split('/');
-    room=path[2];
+
 
   }
 
