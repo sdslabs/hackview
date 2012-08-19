@@ -46,7 +46,7 @@ var Doc=(function(){
         case 'pic-icon':    text = data.text; 
                             $('#loader').css('visibility', 'visible');
                             Doc.flickr (text, function(data) {
-                              obj = data.query.results.photo[0];             
+                              obj = data.query.results.photo;             
                               url = 'http://farm'+obj.farm+'.static.flickr.com/'+obj.server+'/'+obj.id+'_'+obj.secret+'.jpg';
                               text = '!['+text+'](' + url + ') ';
                               $('#editor').replaceSelectedText(text);
@@ -68,14 +68,12 @@ var Doc=(function(){
   }
 
   var _flickr = function(query,callback){
-    var url = 'http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20flickr.photos.search%20where%20text%3D%22' + escape(query) + '%22%20and%20api_key%3D%2241386f9cfb34101b940afa34f6bfba2f%22%20limit%2010&format=json&diagnostics=true&callback=?';
-    console.log(url);
+    var url = 'http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20flickr.photos.search(1)%20where%20text%3D%22' + escape(query) + '%22%20and%20api_key%3D%2241386f9cfb34101b940afa34f6bfba2f%22%20limit%2010&format=json&diagnostics=true&callback=?';
     $.getJSON(url,callback);
   };
 
   var _boss = function(query,callback){
-    //@Todo, set up additional filters, use the power of BOSS
-    var url = 'http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20boss.search%20where%20q%3D%22' + escape(query) +'%22%20and%20ck%3D%22dj0yJmk9YWF3ODdGNWZPYjg2JmQ9WVdrOWVsWlZNRk5KTldFbWNHbzlNVEEyTURFNU1qWXkmcz1jb25zdW1lcnNlY3JldCZ4PTUz%22%20and%20secret%3D%22a3d93853ba3bad8a99a175e8ffa90a702cd08cfa%22&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys';
+    var url = 'http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20boss.search(1)%20where%20q%3D%22' + escape(query) +'%22%20and%20ck%3D%22dj0yJmk9YWF3ODdGNWZPYjg2JmQ9WVdrOWVsWlZNRk5KTldFbWNHbzlNVEEyTURFNU1qWXkmcz1jb25zdW1lcnNlY3JldCZ4PTUz%22%20and%20secret%3D%22a3d93853ba3bad8a99a175e8ffa90a702cd08cfa%22&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys';
 
     $.getJSON(url,callback);
   }
