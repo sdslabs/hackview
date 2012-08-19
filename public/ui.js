@@ -55,7 +55,7 @@ var UI=(function(){
         Hangout.init();
 		//Start Instant chat read and write code
 		$('#chat-form').submit(function(e){
-      e.preventDefault();
+     	 e.preventDefault();
       var val =  $('#chat-edit').val();
       $('#chat-edit').val('');
       if (val!='')
@@ -78,23 +78,25 @@ var UI=(function(){
     });
 
 		$('#videos').delegate('video','click', function(){
-			
+			//var src = $(this).attr('src')
 			//this refers to the current video clicked
-			var youVideo = $(this).clone();
-			var big = youVideo.css({
+			var clickedVideo = $(this).clone();
+			
+			var big = clickedVideo.css({
 				'width' : 600,
 				'height' : 800,
 				'top' : 100,
 				'marginTop' : -100,
 				'left' : 100,
 				'marginLeft' : 100
-			})
+			}) 
 			/* Todo Work on the Responsive Part */
 			$('div.black-back').css({
 				'width': $(window).innerWidth(),
 				'height': $(window).innerHeight()
 			}).show();
 
+			//$('video.big').attr('src',src);
 			$('div.right-black').append( big );
 				
 			$('.video-list').html('');
@@ -105,7 +107,8 @@ var UI=(function(){
 				$('.video-list').append($('<li>').html(videoClone.css({
 							'width': 200,
 							'height': 150,
-							'margin': 0
+							'margin': 0,
+							'left':0
 							})));
 			})
 
@@ -117,6 +120,7 @@ var UI=(function(){
 		});
 
 		$('.video-list').delegate('video','click',function(){
+			
 			var vid = $(this).clone().css({
 				'width' : 600,
 				'height' : 800,
@@ -129,7 +133,11 @@ var UI=(function(){
 			$('.right-black video').remove()
 			$('.right-black').append( vid );
 			console.log( vid )
-
+			
+/*
+		var src = $(this).attr('src');
+		$('video.big').attr('src',src);
+*/
 		})
 
 		$('a.conf-back').click(function(){
