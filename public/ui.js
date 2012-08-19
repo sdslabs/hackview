@@ -37,7 +37,6 @@ var UI=(function(){
 	$(document).ready(function hooks(){
 
     if (window.location.search=='?asknick=yes') {
-      console.log('running');
       $('.container-fluid').fadeOut();
       $('#overlay').fadeIn();
       $('#nick-popup').submit(function(e) {
