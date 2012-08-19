@@ -39,7 +39,22 @@
   </head>
 
   <body>
-
+    <div class = "black-back">
+      <div class = "left-black">
+        Left Block Content
+        <div class ="list-wrapper">
+          <ul class="video-list">
+              <li> 1 </li>
+              <li> 2 </li>
+              <li> 3 </li>
+            </ul>
+          </div>
+        
+      </div>
+      <div class = "right-black">
+        Right Block Content
+      </div>
+    </div>
     <div class="container-fluid">
       <div class="row-fluid">
         <div class="span3 chatbox">
@@ -71,7 +86,10 @@
         <div class="span9">
           <div class="row-fluid">
             <div id="videos">
-                <video id="you" class="flip" autoplay></video>
+                <video id="you" class="flip" autoplay>
+                  Sorry HTML5 Video is not supported in your browser
+                 </video>
+                <div class="video-overlay"></div>
             </div>
           </div><!--/row-->
           <div class="row-fluid editor-container">
@@ -97,6 +115,6 @@
     <script>
       App.init();
     </script>
-
+    
   </body>
 </html>

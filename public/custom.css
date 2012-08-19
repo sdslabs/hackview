@@ -86,7 +86,7 @@ body {
   height:100%;
 }
 #chat-edit{
-  border:1px solid #222 ;
+    border:1px solid #bbb ;
 }
 #editor, #preview{
   font-size:1.2em;
@@ -107,11 +107,27 @@ body {
 #videos video {
   display: inline;
   position: absolute;
+  transition: all 0.5s;
+ -moz-transition: all 0.5s; /* Firefox 4 */
+ -webkit-transition: all 0.5s; /* Safari and Chrome */
+  -o-transition: all 0.5s; /* Opera */
+}
+#videos video:hover {
+  -moz-box-shadow: 0 0 2px 2px #444;
+  -webkit-box-shadow: 0 0 2px 2px #444;
+  box-shadow: 0 0 2px 2px #444;
+  cursor: pointer;
+  opacity:0.8;
 }
 #videos{
   position: relative;
   margin: 0 auto;
   padding-bottom:20px;
+}
+#videos .video-overlay{
+  display:none;
+  background: #000;
+  opacity: 0.3;
 }
 .editor-container {
   background: url(fibers.png);
@@ -179,4 +195,44 @@ div.chat-message{
 #loader {
   margin-left: 40px;
   visibility: hidden;
+}
+div.black-back{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: #000;
+  z-index: 200;
+  display:none;
+  color: #FFF;
+  font-family:sans-serif,verdana, arial;
+  
+}
+div.left-black{
+  width: 30%;
+  float: left;
+  background: #101010;
+  border right: solid transparent  1px 1px 1px 6px;
+  margin-bottom: -99999px;
+  padding-bottom: 99999px;
+}
+div.right-black{
+  width: 70%;
+  float: left;
+  margin-bottom: -99999px;
+  padding-bottom: 99999px;
+}
+.list-wrapper{
+  position: relative;
+  left: -50%;
+}
+ul.video-list{
+  list-style:none;
+  left: 50%;
+  margin: 0 auto;
+}
+ul.video-list li{
+  display:block;
+  height : 150px;
+  width : 200px;
+  border: 1px solid #B1B1B1;
 }

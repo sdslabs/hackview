@@ -46,6 +46,77 @@ var UI=(function(){
   //   $(this).append('hello world');
   // });
 
+	$(document).ready(function hooks(){
+		//Start Instant chat read and write code
+		$('#chat-form').submit(function(e){
+			e.preventDefault();
+			var val =  $('#chat-edit').val();
+			$('#chat-edit').val('');
+			Hangout.chat(val);	
+
+		});
+
+		$('.md-icon').on('click', function() {
+      		var option = $(this).attr('id');
+      		Doc.toolbar(option);
+    	});
+
+		$('video').on('click', function(){
+
+			var youVideo = $(this).clone().css({
+				'width' : 600,
+				'height' : 800,
+				'top' : 100,
+				'marginTop' : -100,
+				'left' : 100,
+				'marginRight' : -100
+			})
+			/* Todo Work on the Responsive Part */
+			$('div.black-back').css({
+				'width': $(window).innerWidth(),
+				'height': $(window).innerHeight()
+			}).show();
+
+			$('div.right-black').append( youVideo )
+
+		});
+		/*
+		var video = $('video'),
+			$overlay = $('#videos .video-overlay');
+
+			video.wrap($('<div class="video-wrap"/>'));
+			$('.video-wrap').css({
+				'width' : $(this).find('video').width(),
+				'height' : $(this).find('video').height()
+			})
+
+		var videoOverlay = function(e){
+			console.log('Mouse Enter Event');
+			$this = $(this).find('video');
+			console.log($this);
+			$overlay.css({
+				'width': $this.width(),
+				'height': $this.height(),
+				'position': 'absolute',
+				'left': $this.position().left,
+				'top': $this.position.top,
+				'z-index': 100
+			}).stop(true,true).fadeIn();
+			
+		}
+
+		var eraseOverlay = function(e){
+
+			$overlay.stop(true,true).fadeOut();
+		}
+
+		//video.hover(videoOverlay,eraseOverlay);
+		
+		$('.video-wrap').on('mouseenter', videoOverlay);
+		$('.video-wrap').on('mouseleave', eraseOverlay)
+		
+		*/
+	});
   //this will handle the UI Portions
   return {
   	//this changes view to particular contact
@@ -61,6 +132,6 @@ var UI=(function(){
   	  $('#overview').after( chatMessage );
 
 	  },
-    refresh:_refresh
+    refresh: _refresh
   };
 })();
