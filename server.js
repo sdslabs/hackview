@@ -37,7 +37,7 @@ require('./rtc.js')(webRTC);
 
 
 app.get('/', function(req, res) {
-  res.sendfile(__dirname + '/public/index.html');
+  res.sendfile(__dirname + '/public/room.html');
 });
 
 /** Create a new random room */
@@ -61,3 +61,23 @@ var getRandomRoom = function(){
   }
   return randomstring;
 }
+
+app.get('/room/:roomName',function(req,res){
+  if(req.session.nick || req.query.asknick){
+    //if a person has his nickname set, let him reach that
+    res.sendfile(__dirname+'/public/room.html');
+  }
+  else{
+    //make sure he/she is asked a username
+    res.redirect('/room/'+req.params.roomName+'?asknick=yes');
+  }
+});
+
+app.get('/setnick',function(req,res){
+  req.session.nick = req.query.nick;
+  res.send('');
+});
+
+app.get('/debug',function(req,res){
+  res.json(req.session);
+});
