@@ -282,11 +282,13 @@ ul.video-list li{
 a.conf-back{
   color: #FFF;
   position: absolute;
-  top:5px;
-  right:5px;
+  font-size: 20px;
+  top:15px;
+  right:15px;
   text-decoration: none;
   cursor: pointer;
-}.alert-msg {
+}
+.alert-msg {
   display: none;
   margin-top: 100px;
   color: #777;
