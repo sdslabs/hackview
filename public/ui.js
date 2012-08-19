@@ -53,17 +53,17 @@ var UI=(function(){
 		});
 
 		$('.md-icon').on('click', function() {
-      		var option = $(this).attr('id');
-      		Doc.toolbar(option);
-    	});
-
-    $('#editor').bind('keyup', 'ctrl+b', function() {
+    		var option = $(this).attr('id');
+    		Doc.toolbar(option);
+  	});
+    
+    $('#editor').bind('keydown', 'ctrl+b', function() {
        Doc.toolbar('bold-icon');
     });
-    $('#editor').bind('keyup', 'ctrl+i', function() {
+    $('#editor').bind('keydown', 'ctrl+i', function() {
        Doc.toolbar('italic-icon');
     });
-    $('#editor').bind('keyup', 'ctrl+q', function() {
+    $('#editor').bind('keydown', 'ctrl+q', function() {
        Doc.toolbar('boss-icon');
     });
 
