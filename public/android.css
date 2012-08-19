@@ -53,6 +53,9 @@ and (max-device-width : 480px) {
 	.theme-default .nivoSlider {
 		width: 100%;
 	}
+	#androidbug {
+		display: none;
+	}
 }
 
 /* Smartphones (landscape) ----------- */

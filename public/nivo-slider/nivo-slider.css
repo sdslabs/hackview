@@ -108,3 +108,7 @@
 .nivo-controlNav a.active {
 	font-weight:bold;
 }
+
+#androidbug {
+  display: none;
+}

@@ -30,6 +30,7 @@
       <span class="help-inline">nickname[@sdslabs] creates a chat room named sdslabs</span> <br />
       <br />
       <input class="btn btn-warning" id="submit" type="submit" value="Create Chat Room!" />
+      <input class="btn btn-warning" id="androidbug" type="submit" value="Create Chat Room!" />
     </form>
   </div>
   <script src="nivo-slider/jquery.nivo.slider.js"></script>
@@ -38,6 +39,7 @@
       $('#slider').nivoSlider({
         effect: 'fold'
       });
+      if($(window).width() > 400) {
       $('#nickname').keyup(function(){
         var nick = this.value;
         var room = nick.split('@')[1];
@@ -48,6 +50,7 @@
           $('#submit').attr("value","Create Chat Room");   
         }
       });
+    }
     });
   </script>
 </body>

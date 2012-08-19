@@ -292,3 +292,6 @@ a.conf-back{
   color: #777;
   font-size: 0.9em;
 }
+#androidbug {
+  display: none;
+}
