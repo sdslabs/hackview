@@ -96,13 +96,13 @@ var UI=(function(){
 			$('.video-list').html('');
 			$('#videos video').each(function(){
 				var videoClone = $(this).clone();
-				var html =  videoClone.css({
+				 
+
+				$('.video-list').append($('<li>').html(videoClone.css({
 							'width': 200,
 							'height': 150,
 							'margin': 0
-							}).wrap('<li/>');
-
-				$('.video-list').append(html);
+							})));
 			})
 
 
