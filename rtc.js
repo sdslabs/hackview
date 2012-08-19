@@ -1,5 +1,5 @@
 module.exports=(function(webRTC){
-  var sanitize= require('validator');
+  var sanitize= require('validator').sanitize;
   webRTC.rtc.on('connect', function(rtc) {
     console.log("someone connected");
     //Client connected
