@@ -37,6 +37,31 @@
   </head>
 
   <body>
+
+    <div id="overlay">
+      <form id="nick-popup" method="GET">
+          <label for="nickname">Enter a Nickname</label>
+          <input type="text" class="input-xlarge" id="nickname" name="nickname"> <br />
+          <input class="btn btn-warning" type="submit" name="submit" id="submit" value="Create Chat Room!" />
+          <br />
+      </form>
+    </div>
+
+    <script>
+        
+      $(function() {
+        if (find(window.location.search, 'asknick=yes')) {
+          $('#overlay').fadeIn();
+          $('#nick-popup').submit(function(e) {
+            e.preventDefault();
+            var nick = $('#nickname').val();
+            $.get('/setnick',{nick:nick});
+          });
+        }
+      });
+        
+    </script>
+
     <div class = "black-back">
       <div class = "left-black">
         <div class ="list-wrapper">
