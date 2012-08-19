@@ -75,6 +75,7 @@ body {
   overflow:hidden;
   padding-top: 10px;
   padding-bottom: 40px;
+  background: url(gplay.png);
 }
 .sidebar-nav {
   padding: 9px 0;
