@@ -6,7 +6,7 @@ var App=(function(){
 
   function _init(){
     //if you are not in a chatroom, return
-    var ret = Hangout.init();//call the hangout Init function
+    //var ret = Hangout.init();//call the hangout Init function
     //hangout is the full powered mode
     //default is normal browser w/o video chat
     if(ret===false){

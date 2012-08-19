@@ -5,6 +5,7 @@ var UI=(function(){
 
   //Function to refresh the UI depending on various things
   function _refresh(){
+    console.log ('refresh called');
     var vids=$('#videos video');
     var count = vids.length;
     count=count<1 ? 1:count;
@@ -44,11 +45,14 @@ var UI=(function(){
         var nick = $('#nickname').val();
         if (nick!='') {
           $.get('/setnick',{nick:nick});
+          Hangout.init();
           $('#overlay').fadeOut();
           $('.container-fluid').fadeIn();
         }
       });
     }
+    else
+        Hangout.init();
 		//Start Instant chat read and write code
 		$('#chat-form').submit(function(e){
       e.preventDefault();
