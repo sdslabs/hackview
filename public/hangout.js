@@ -28,12 +28,13 @@ var Hangout=(function(){
         $('video[rel="'+socketId+'"]').remove();
     });
     rtc.on('receive_chat_msg', function(data){
-      UI.addChatMessage(data.msg);
+      UI.addChatMessage(data.nick+": "+data.msg);
     })
   };
 
   //Sends chat using rtc sockets
   function sendChat (message){
+    UI.addChatMessage("me: "+message);
     rtc._socket.send(JSON.stringify({
       eventName:"chat_msg",
       data:{
