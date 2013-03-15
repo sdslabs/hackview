@@ -20,7 +20,9 @@ var Hangout=(function(){
     rtc.connect("ws://"+window.location.hostname+":"+window.location.port||80, App.getRoom());
 
     rtc.on('add remote stream', function(stream, socketId) {
+	  alert("Adding Remote Stream");
       var video = $('<video />').attr('rel',socketId).appendTo('#videos')[0];
+      console.log(video);
       rtc.attachStream(stream, video);
       UI.refresh();
     });

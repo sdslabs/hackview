@@ -300,7 +300,7 @@ var getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || nav
   };
 
   rtc.attachStream = function(stream, domId) {
-    document.getElementById(domId).src = URL.createObjectURL(stream);
+    domId.src = URL.createObjectURL(stream);
   };
 
 
